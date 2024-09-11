@@ -1,0 +1,74 @@
+<div id="my-docs">
+    <h1>{{"My_Documents" | translate}}</h1>
+
+    <div class="main-container">
+        <div class="left-overview">
+            <div class="button" [ngClass]="activeButton === 'sick' ? ' active' : ''" (click)="activeButton = 'sick'">{{"Leaves" | translate}}</div>
+            <div class="button" [ngClass]="activeButton === 'certificates' ? ' active' : ''" (click)="activeButton = 'certificates'">{{"Training_certificates_&_Internships" | translate}}</div>
+            <div class="button" [ngClass]="activeButton === 'pay' ? ' active' : ''" (click)="activeButton = 'pay'">{{"Pay_Slip" | translate}}</div>
+            <div class="button" [ngClass]="activeButton === 'cv' ? ' active' : ''" (click)="activeButton = 'cv'">CV</div>
+            <div class="button" [ngClass]="activeButton === 'degree' ? ' active' : ''" (click)="activeButton = 'degree'">{{"Degrees" | translate}}</div>
+            <div class="button" [ngClass]="activeButton === 'identification' ? ' active' : ''" (click)="activeButton = 'identification'">{{"Identification" | translate}}</div>
+            <div class="button " [ngClass]="activeButton === 'official' ? ' active' : ''" (click)="activeButton = 'official'">{{"Official_Letters" | translate}}</div>
+        </div>
+
+        <div class="right-overview">
+            
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{"Documents" | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{"Add_Document" | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </div> -->
+
+            <!-- <table mat-table [dataSource]="privilegesDataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef> # </th>
+                    <td mat-cell *matCellDef="let element"> {{ privilegesDataSource.indexOf(element) + 1 }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="privilegeName">
+                    <th mat-header-cell *matHeaderCellDef> Privilege Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.privilegeName}} </td>
+                </ng-container>
+\
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> Created At </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'dd MMM, yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="updatedAt">
+                    <th mat-header-cell *matHeaderCellDef> Updated At </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.updatedAt | date: 'dd MMM, yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="privilegesColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: privilegesColumns;"></tr>
+            </table> -->
+            <app-common-table [displayCols]="docsColumns" [dataSource]="docDataSource" ></app-common-table>
+
+        </mat-card-content>
+    </mat-card>
+
+        </div>
+    </div>
+      
+
+</div>

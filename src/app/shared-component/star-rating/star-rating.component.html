@@ -1,0 +1,8 @@
+<span *ngFor="let star of stars">
+    <ng-container [ngSwitch]="star">
+      <mat-icon *ngSwitchCase="'full'">star</mat-icon>
+      <mat-icon *ngSwitchCase="'half'">star_half</mat-icon>
+      <mat-icon *ngSwitchCase="'empty'">star_border</mat-icon>
+    </ng-container>
+  </span>
+  

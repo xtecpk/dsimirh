@@ -1,0 +1,20 @@
+<h2 mat-dialog-title> {{'Add_Completion_Percentage_&_Comment' | translate}} (N+1) </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="objectForm">
+        <mat-form-field>
+            <mat-label> {{'Achievements' | translate}} %</mat-label>
+            <input matInput formControlName="achievements" type="number">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Comments' | translate}}</mat-label>
+            <textarea matInput formControlName="comments"
+                placeholder="Provide a detailed comments on the objective."></textarea>
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()"> {{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="objectForm.invalid"> {{'Submit' | translate}}</button>
+</mat-dialog-actions>

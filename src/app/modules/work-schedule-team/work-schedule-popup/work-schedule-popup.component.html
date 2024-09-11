@@ -1,0 +1,60 @@
+<h2 mat-dialog-title>{{'Add_a_session_of_the_month' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="workForm">
+        <mat-form-field>
+            <mat-label>{{'Please_select_a_team' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectTeam">
+                <option value="1">Team 1</option>
+                <option value="2">Team 2</option>
+                <option value="3">Team 3</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Please_select_employee' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectEmployee">
+                <option value="1">John Doe</option>
+                <option value="2">Smith Klien</option>
+                <option value="3">Mason Cones</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>{{'Please_select_a_period' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectPeriod">
+                <option value="1">Period 1</option>
+                <option value="2">Period 2</option>
+                <option value="3">Period 3</option>
+            </select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>{{'Please_indicate_the_number_of_beds' | translate}}</mat-label>
+            <input matInput formControlName="NumberOfBeds" >
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>{{'Please_select_month' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectMonth">
+                <option value="1">{{'Jan' | translate}}</option>
+                <option value="2">{{'Feb' | translate}}</option>
+                <option value="3">{{'Mar' | translate}}</option>
+                <option value="4">{{'Apr' | translate}}</option>
+                <option value="5">{{'May' | translate}}</option>
+                <option value="6">{{'Jun' | translate}}</option>
+                <option value="7">{{'Jul' | translate}}</option>
+                <option value="8">{{'Aug' | translate}}</option>
+                <option value="9">{{'Sep' | translate}}</option>
+                <option value="10">{{'Oct' | translate}}</option>
+                <option value="11">{{'Nov' | translate}}</option>
+                <option value="12">{{'Dec' | translate}}</option>
+            </select>
+        </mat-form-field>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="workForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

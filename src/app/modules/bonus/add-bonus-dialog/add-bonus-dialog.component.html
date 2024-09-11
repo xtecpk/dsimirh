@@ -1,0 +1,107 @@
+<h2 mat-dialog-title>{{"Add_Bonus_Details" | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <!-- <mat-form-field>
+        <mat-label>Select Bonus Type</mat-label>
+        <select matNativeControl required #selectMethod formControlName="selectMethod">
+            <option value="annually">Annually</option>
+            <option value="monthly">Monthly</option>
+            <option value="custom">Custom</option>
+        </select>
+    </mat-form-field>
+
+    @if (selectMethod.value == 'custom') {
+    <mat-form-field class="date">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="startDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+        <mat-datepicker #startDate></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field class="date">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="endDate">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+        <mat-datepicker #endDate></mat-datepicker>
+    </mat-form-field>
+    } -->
+
+    <form [formGroup]="bonusForm">
+        <mat-form-field>
+            @if (fieldsToShow.includes('feedback')) {
+              <mat-label>{{"Feedback_Score" | translate}}</mat-label>
+            }
+            @if (fieldsToShow.includes('evaluation')) {
+              <mat-label>{{"Evaluation_Score" | translate}}</mat-label>
+            }
+            @if (fieldsToShow.includes('both')) {
+              <mat-label>{{"Combine_Score" | translate}}</mat-label>
+            }
+            
+            <select matNativeControl required>
+                <option value="1">1</option>
+                <option value="1.5">1.5</option>
+                <option value="2">2</option>
+                <option value="2.5">2.5</option>
+                <option value="3">3</option>
+                <option value="3.5">3.5</option>
+                <option value="4">4</option>
+                <option value="4.5">4.5</option>
+                <option value="5">5</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field class="example-chip-list">
+            <mat-label>{{'Please_select_an_employee' | translate}}</mat-label>
+            <mat-chip-grid #chipGrid aria-label="Enter fruits">
+              @for (employee of employees(); track employee) {
+                <mat-chip-row
+                  (removed)="remove(employee)"
+                  [editable]="true"
+                  (edited)="edit(employee, $event)"
+                  [aria-description]="'press enter to edit ' + employee.name"
+                >
+                  {{employee.name}}
+                  <button matChipRemove [attr.aria-label]="'remove ' + employee.name">
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip-row>
+              }
+              <input
+                placeholder="New Employee..."
+                [matChipInputFor]="chipGrid"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="add($event)"
+              />
+            </mat-chip-grid>
+          </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Select_Department" | translate}}</mat-label>
+            <select matNativeControl required>
+                <option value="1">{{"Department" | translate}} 1</option>
+                <option value="2">{{"Department" | translate}} 2</option>
+                <option value="3">{{"Department" | translate}} 3</option>
+                <option value="4">{{"Department" | translate}} 4</option>
+              </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Please_Select_A_Service' | translate}}</mat-label>
+            <select matNativeControl required>
+                <option value="1">{{"Service" | translate}} 1</option>
+                <option value="2">{{"Service" | translate}} 2</option>
+                <option value="3">{{"Service" | translate}} 3</option>
+                <option value="4">{{"Service" | translate}} 4</option>
+              </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Enter_Bonus_Percentage" | translate}}</mat-label>
+            <input matInput formControlName="privilegeId" placeholder="Between 1% to 50%">
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Cancel" | translate}}</button>
+    <button mat-flat-button (click)="sendData()">{{"Calculate_Bonus" | translate}}</button>
+</mat-dialog-actions>

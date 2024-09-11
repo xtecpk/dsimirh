@@ -1,0 +1,213 @@
+#overview {
+    padding: 10px;
+    
+
+    h1 {
+        font-weight: 500;
+        padding: 0.5rem 0 1.3rem 0;
+        font-size: var(--text-xl);
+    }
+
+    .main-container {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .left-overview {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .small-container {
+                display: flex;
+                flex-direction: column;
+                border: 1px solid var(--border-gray);
+                border-radius: 5px;
+                background: var(--white-bg);
+                font-weight: 500;
+                font-size: 1.3rem;
+
+                .small-header {
+                    border-bottom: 1px solid var(--border-gray);
+                    padding: 18px;
+                }
+                .small-content {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 18px;
+
+                    .content-left {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .content-right {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    p {
+                        font-size: var(--text-md);
+                    }
+                    .red {
+                        color: var(--red-text);
+                    }
+                    .blue {
+                        color: var(--blue-text);
+                    }
+                    .gray {
+                        color: var(--gray-text);
+                        font-size: var(--text-sm);
+                    }
+                }
+            }
+        }
+        .right-overview {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+    }
+
+    ::ng-deep {
+        mat-card {
+            border: 1px solid var(--border-gray);
+            border-radius: 5px;
+            background: var(--white-bg);
+
+            .range {
+                width: 100%;
+                padding: 20px 15px;
+            }
+
+            .outer-range {
+                background: var(--light-blue);
+                width: 100%;
+                height: 5px;
+                border-radius: 5px;
+
+                .inner-range {
+                    background: var(--primary);
+                    width: 80%;
+                    height: 100%;
+                    border-radius: 5px;
+                }
+            }
+
+            mat-card-header {
+                border-bottom: 1px solid var(--border-gray);
+                font-weight: 500;
+                font-size: var(--text-lg);
+                padding: 20px;
+            }
+
+            mat-card-content {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 15px;
+                color: var(--text-second);
+
+
+                .content-left {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+                .content-right {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                }
+
+                p {
+                    font-size: var(--text-md);
+                }
+                .red {
+                    color: var(--red-text);
+                    font-weight: 500;
+                }
+                .blue {
+                    color: var(--blue-text);
+                    font-weight: 500;
+                }
+                .gray {
+                    color: var(--gray-text);
+                    font-size: var(--text-sm);
+                }
+
+                .table {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    padding-top: 10px;
+                    width: 100%;
+
+                    h4 {
+                        font-size: var(--text-lg);
+                        font-weight: 500;
+                        margin: 0;
+                    }
+
+                    .row {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                        p {
+                            font-size: var(--text-sm);
+                            color: var(--gray-text);
+                            text-transform: uppercase;
+                            flex: 1;
+                            padding: 0;
+                            &:nth-last-of-type(1) {
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &#date-card {
+                padding: 15px;
+            }
+
+            .inner-div {
+                border: 1px solid var(--border-gray2);
+                border-radius: 5px;
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+
+                label {
+                    font-weight: 600;
+                    font-size: 1rem;
+                }
+                // button {
+                //     font-weight: 500;
+                //     color: var(--text-white);
+                //     background: var(--primary);
+                // }
+
+                input {
+                    padding: 0.6rem;
+                    font-size: 1rem;
+                    border-radius: 5px;
+                    border: 1px solid var(--border-gray2);
+                }
+                button {
+                    font-size: var(--text-md);
+                    // border-radius: 10px;
+                }
+            }
+        }
+    }
+}
+
+app-calender{
+    width: 100%;
+}

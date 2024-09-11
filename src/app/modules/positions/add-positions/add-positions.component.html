@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{'Add_Position_Form' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="jobsForm">
+        <mat-form-field>
+            <mat-label>{{'Position_Title' | translate}}</mat-label>
+            <input matInput formControlName="positionTitle" placeholder="{{'Enter_Position_Title' | translate}}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Position_Code' | translate}}</mat-label>
+            <input matInput formControlName="positionCode" placeholder="{{'Enter_Position_Code' | translate}}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Number_of_Positions' | translate}}</mat-label>
+            <input matInput formControlName="noOfPositions" placeholder="{{'Enter_Position_Number' | translate}}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Department' | translate}}</mat-label>
+            <mat-select formControlName="department">
+                @for (data of departmentData; track data) {
+                  <mat-option [value]="data.departmentId">{{data.department}}</mat-option>
+                }
+              </mat-select>
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Cancel' | translate}}</button>
+    <button mat-button (click)="sendData()">{{'Add' | translate}}</button>
+</mat-dialog-actions>

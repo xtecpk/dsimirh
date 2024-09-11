@@ -1,0 +1,28 @@
+<h2 mat-dialog-title> {{'Add_Units' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="unitForm">
+        <!-- <mat-form-field>
+            <mat-label>{{'Unit_ID' | translate}}</mat-label>
+            <input matInput type="number" min="0" formControlName="unitId">
+        </mat-form-field> -->
+        <mat-form-field>
+            <mat-label>{{'Unit_Name' | translate}}</mat-label>
+            <input matInput formControlName="unitName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Unit_Description' | translate}}</mat-label>
+            <textarea matInput formControlName="unitDescription"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Service_ID' | translate}}</mat-label>
+            <input matInput type="number" min="0" formControlName="serviceId">
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="unitForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

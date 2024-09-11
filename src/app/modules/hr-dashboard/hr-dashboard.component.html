@@ -1,0 +1,121 @@
+<div id="hr-dashboard">
+
+    <h1>{{"Reporting_And_Analysis" | translate}}</h1>
+    <div class="main-container">
+        <div class="left">
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"New_Agents(Last 30 Days)" | translate}}</mat-card-header>
+                <div class="chart">
+                <canvas  id="hrChartCanvas" ></canvas>
+
+                </div>
+                <mat-card-content>
+
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Number_of_employees_on_annual_leave_and_maternity_leave" | translate}}</mat-card-header>
+                <mat-card-content class="table-container">
+        
+                    <!-- <table mat-table [dataSource]="workForceSourceData" class="mat-elevation-z8">
+        
+                        <ng-container matColumnDef="#">
+                            <th mat-header-cell *matHeaderCellDef> # </th>
+                            <td mat-cell *matCellDef="let element"> {{ workForceSourceData.indexOf(element) + 1 }} </td>
+                        </ng-container>
+        >
+                        <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="employment">
+                            <th mat-header-cell *matHeaderCellDef> Employment </th>
+                            <td mat-cell *matCellDef="let element"> {{element.employment}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="sus">
+                            <th mat-header-cell *matHeaderCellDef> Sus </th>
+                            <td mat-cell *matCellDef="let element"> {{element.sus}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="subdivision">
+                            <th mat-header-cell *matHeaderCellDef> Subdivision </th>
+                            <td mat-cell *matCellDef="let element"> {{element.subdivision}} </td>
+                        </ng-container>
+        
+                        <tr mat-header-row *matHeaderRowDef="workForceColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: workForceColumns;"></tr>
+                    </table> -->
+
+            <app-common-table [displayCols]="workForceColumns" [dataSource]="workForceSourceData" ></app-common-table>
+
+        
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Retirements_In_Current_Year" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>{{"Number_of_Retirements" | translate}}</p>
+                        <p class="blue">209</p>
+                    </div>
+                    <div class="column">
+                        <p>{{"Time_Span" | translate}}</p>
+                        <p class="blue">Current Year</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Number_Of_Labor(Hired)" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>{{"Number_of_Labor" | translate}}</p>
+                        <p class="red">24</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div class="right">
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Number_Of_Departures" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>{{"Number" | translate}}</p>
+                        <p class="gray">50</p>
+                    </div>
+                    <div class="column">
+                        <p>{{"Reason" | translate}}</p>
+                        <p class="gray">{{"Business_Advertisement" | translate}}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Number_Of_Agents_In_Training" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>{{"Number" | translate}}</p>
+                        <p class="gray">80</p>
+                    </div>
+                    <div class="column">
+                        <p>{{"Time_Span" | translate}}</p>
+                        <p class="gray">{{"Last_30_days" | translate}}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Number_Of_Agents_Assigned" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>{{"Number" | translate}}</p>
+                        <p class="gray">25</p>
+                    </div>
+                    <div class="column">
+                        <p>{{"Time_Span" | translate}}</p>
+                        <p class="gray">{{"Last_30_days" | translate}}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

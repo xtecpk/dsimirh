@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>{{"Add_Development_Plan" | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="planForm">
+        <mat-form-field>
+            <mat-label>{{"Skill_to_develop" | translate}}</mat-label>
+            <input matInput formControlName="skill" placeholder="Enter Skills">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Action" | translate}}:</mat-label>
+            <input matInput formControlName="action" placeholder="Enter Action">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Timeline" | translate}}:</mat-label>
+            <input matInput formControlName="timeline" placeholder="Enter timeline">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Start_Date" | translate}}:</mat-label>
+            <input matInput [matDatepicker]="startDate" formControlName="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"End_Date" | translate}}:</mat-label>
+            <input matInput [matDatepicker]="endDate" formControlName="endDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>{{"Support_and_Resources_needed" | translate}}:</mat-label>
+            <textarea matInput formControlName="resources"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Success_Criteria" | translate}}:</mat-label>
+            <textarea matInput formControlName="criteria"></textarea>
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-flat-button (click)="sendData()">{{"Submit" | translate}}</button>
+    <button mat-flat-button (click)="sendData()">{{"View_All" | translate}}</button>
+</mat-dialog-actions>

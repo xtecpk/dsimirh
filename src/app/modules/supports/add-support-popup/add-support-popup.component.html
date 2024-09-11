@@ -1,0 +1,35 @@
+<h2 mat-dialog-title> {{"Add_Support_Details" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="supportForm">
+        <mat-form-field>
+            <mat-label>{{"Add_Title" | translate}}</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Document_Type" | translate}}</mat-label>
+            <select matNativeControl formControlName="documentType">
+                <option value="1">Document</option>
+                <option value="2">Vedio</option>
+                <option value="3">Audio</option>
+                <option value="4">Image</option>
+              </select>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>{{"Created_At" | translate}}</mat-label>
+            <input matInput [matDatepicker]="created" formControlName="createdAt">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="created"></mat-datepicker-toggle>
+            <mat-datepicker #created></mat-datepicker>
+          </mat-form-field> -->
+
+          <p>{{"Justification_Document" | translate}}</p>
+        <input type="file" formControlName="document">
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="supportForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

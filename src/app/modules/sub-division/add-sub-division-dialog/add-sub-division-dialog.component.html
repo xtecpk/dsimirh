@@ -1,0 +1,28 @@
+<h2 mat-dialog-title> {{'Add_Sub_Division' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="subDivisionForm">
+        <mat-form-field>
+            <mat-label>{{'Assitant_Director_Name' | translate}}</mat-label>
+            <input matInput formControlName="assistantDirector">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Sub_Division_Name' | translate}}</mat-label>
+            <input matInput formControlName="subDivisionName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Division_Name' | translate}}</mat-label>
+            <mat-select formControlName="divisionName">
+                @for (data of divisionData; track data) {
+                  <mat-option [value]="data.departmentId">{{data.department}}</mat-option>
+                }
+              </mat-select>
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="subDivisionForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

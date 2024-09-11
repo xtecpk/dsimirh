@@ -1,0 +1,132 @@
+<div id="evaluation">
+
+    <h1>{{"Evaluation" | translate}}</h1>
+
+    <div class="content">
+        <!-- <div class="evaluation-request-container">
+            <div class="request">
+                <h2>{{"Evaluation_Requests" | translate}}</h2>
+                <p class="number">7</p>
+                <p class="update">{{"Current_Update" | translate}}</p>
+            </div>
+            <div class="request ongoing">
+                <h2>{{"Ongoing_Evaluations" | translate}}</h2>
+                <p class="number">6</p>
+                <p class="update">{{"Current_Update" | translate}}</p>
+            </div>
+            <div class="request evaluated">
+                <h2>{{"Evaluated_Employees" | translate}}</h2>
+                <p class="number">21</p>
+                <p class="update">{{"Current_Update" | translate}}</p>
+            </div>
+            <div class="request non-evaluated">
+                <h2>{{"Non_Evaluated" | translate}}</h2>
+                <p class="number">2</p>
+                <p class="update">{{"Current_Update" | translate}}</p>
+            </div>
+        </div> -->
+
+        <div class="middle">
+            <mat-card appearance="outlined" class="card-left">
+                @if (!isAdmin) {<mat-card-header>{{"Search_Employees(After_Selection)" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="select-container">
+                        <h2>{{"Select_the_department_&_service" | translate}}</h2>
+                        <div class="select-fields">
+                            <select>
+                                <option>{{"Select_Department" | translate}}</option>
+                                <option>{{"Department" | translate}} 1</option>
+                                <option>{{"Department" | translate}} 2</option>
+                                <option>{{"Department" | translate}} 3</option>
+                            </select>
+                            <select>
+                                <option>{{"Select_Service" | translate}}</option>
+                                <option>{{"Service" | translate}} 1</option>
+                                <option>{{"Service" | translate}} 2</option>
+                                <option>{{"Service" | translate}} 3</option>
+                            </select>
+                        </div>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search Employee...">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                        <button mat-flat-button (click)="openDialog()">{{"Start_Evaluation" | translate}}</button>
+                    </div>
+
+                </mat-card-content>}
+
+                @if (isAdmin) {
+                    <mat-card-header>{{"List_Of_Objectives" | translate}}</mat-card-header>
+                    <div class="chart">
+                        <canvas  id="chartCanvas"></canvas>
+                    </div>
+                }
+            </mat-card>
+
+            <mat-card appearance="outlined" class="card-right">
+                <mat-card-header>{{"List_Of_Evaluations" | translate}}</mat-card-header>
+                <div class="chart">
+                    <canvas  id="chartCanvas2"></canvas>
+                </div>
+            </mat-card>
+        </div>
+
+        <mat-card appearance="outlined">
+            <mat-card-header>{{"Evaluation" | translate}}</mat-card-header>
+            <mat-card-content>
+                <!-- <div class="top-bar">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search">
+                        <mat-icon>search</mat-icon>
+                    </div>
+                </div> -->
+
+                <!-- <table mat-table [dataSource]="evaluationSourceData" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="#">
+                        <th mat-header-cell *matHeaderCellDef> # </th>
+                        <td mat-cell *matCellDef="let element"> {{ evaluationSourceData.indexOf(element) + 1 }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="evaluation">
+                        <th mat-header-cell *matHeaderCellDef> Evaluation </th>
+                        <td mat-cell *matCellDef="let element"> {{element.evaluation}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lineManager1">
+                        <th mat-header-cell *matHeaderCellDef> Line Manager N+1 </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lineManager1}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="type">
+                        <th mat-header-cell *matHeaderCellDef> Type </th>
+                        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="lineManager2">
+                        <th mat-header-cell *matHeaderCellDef> Line Manager N+2 </th>
+                        <td mat-cell *matCellDef="let element"> {{element.lineManager2}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef> Actions </th>
+                        <td mat-cell *matCellDef="let element"><mat-icon>visibility</mat-icon></td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="evaluationColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: evaluationColumns;"></tr>
+                </table> -->
+
+                <app-common-table [displayCols]="evaluationColumns" [dataSource]="evaluationSourceData" [fromComp]="'evalution'" [exportImport]="'export'" ></app-common-table>
+
+            </mat-card-content>
+        </mat-card>
+
+    </div>
+
+</div>

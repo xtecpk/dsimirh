@@ -1,0 +1,142 @@
+<div id="overview">
+    <h1>{{'Overview' | translate}}</h1>
+
+    <div class="main-container">
+        <div class="left-overview">
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'My_Absences_&_Holidays' | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="content-left">
+                        <p class="top">{{'Total_Absents' | translate}}</p>
+                        <p class="bottom blue">354</p>
+                    </div>
+                    <div class="content-right">
+                        <p class="top"> {{'Percentage' | translate}}</p>
+                        <p class="bottom blue">25.67%</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'Remaining_Leave' | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="content-left">
+                        <p class="top"> {{'Vacation_Balance' | translate}}</p>
+                        <p class="bottom gray">24 days</p>
+                    </div>
+                    <div class="content-right">
+                        <p class="bottom gray"> {{'View_Details' | translate}}</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'Upcoming_Leaves' | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p> {{'Number_of_Leaves' | translate}}</p>
+                        <p class="red">15</p>
+                    </div>
+                    <div class="column">
+                        <p> {{'Starting_From' | translate}}</p>
+                        <p class="red">30/12/2024</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'Leave_Calender' | translate}}</mat-card-header>
+                <mat-card-content>
+                   <app-calender></app-calender>
+                    
+                </mat-card-content>
+            </mat-card>
+            
+        </div>
+
+        <div class="right-overview">
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'Work_Schedule' | translate}}</mat-card-header>
+                <mat-card-content>
+                    <div class="table">
+                        <div class="row">
+                            <p>{{'Start_Date' | translate}}</p>
+                            <p>2 FEB,2024</p>
+                        </div>
+                        <div class="row">
+                            <p>{{'End_Date' | translate}}</p>
+                            <p>6 June,2024</p>
+                        </div>
+                        <div class="row">
+                            <p>{{'Start_Time' | translate}}</p>
+                            <p>8:00 AM</p>
+                        </div>
+                        <div class="row">
+                            <p>{{'End_Time' | translate}}</p>
+                            <p>2:00 PM</p>
+                        </div>
+                        <h4>{{'Next_Shift' | translate}}</h4>
+                        <div class="row">
+                            <p>{{'Date' | translate}}</p>
+                            <p>2022-06-09</p>
+                        </div>
+                        <div class="row">
+                            <p>{{'Time' | translate}}</p>
+                            <p>09:00 AM</p>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'Objectives_Achieved' | translate}}</mat-card-header>
+                <!-- <input type="range" max="100" min="0" value="80"> -->
+                <div class="range">
+                    <div class="outer-range">
+                        <div class="inner-range"></div>
+                    </div>
+                </div>
+                <mat-card-content>
+                    <!-- <div class="content-left">
+                        <p class="top">My Appraisal</p>
+                        <p class="bottom gray">Status</p>
+                    </div> -->
+                    <div class="content-right">
+                        <p class="bottom gray">4/5</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card appearance="outlined">
+                <mat-card-header> {{'My_Feedbacks' | translate}}</mat-card-header>
+                <div class="range">
+                    <div class="outer-range">
+                        <div class="inner-range" style="width: 60%;"></div>
+                    </div>
+                </div>
+                <mat-card-content>
+                    <div class="content-left">
+                        <!-- <p class="top">My Feedback</p> -->
+                        <p class="bottom gray">{{'Feedbacks' | translate}} : 15</p>
+                    </div>
+                    <div class="content-right">
+                        <app-star-rating [rating]="2.7"></app-star-rating>
+                        <p class="bottom gray">2.7</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card appearance="outlined" id="date-card">
+                <div class="inner-div">
+                    <label for="public-date"> {{'Public_Service_Joining_Date' | translate}}:</label>
+                    <input disabled type="date" value="2006-04-23" id="public-date" name="public-date">
+                    <label for="joining-date"> {{'Joining_at_CHU_de_COCODY_Date' | translate}}:</label>
+                    <input disabled type="date" value="2020-04-23"  id="joining-date" name="joining-date">
+                    <!-- <button mat-flat-button>Basic</button> -->
+                </div>
+            </mat-card>
+
+        </div>
+    </div>
+      
+
+</div>

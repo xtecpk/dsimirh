@@ -1,0 +1,36 @@
+<h2 mat-dialog-title> {{"Add_Leave" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="leaveForm">
+        <div formArrayName="leaves">
+            @for (leave of leaves.controls; track $index) {
+            <div [formGroupName]="$index">
+                <mat-form-field>
+                    <mat-label>{{'Planning_Title' | translate}}</mat-label>
+                    <input matInput formControlName="planTitle" placeholder="Ex. Plan" value="Sushi">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{'Title_of_annual_leave_plan' | translate}}</mat-label>
+                    <input matInput formControlName="leaveTitle" placeholder="Ex. Independence Day" value="Sushi">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>{{'Leave_Date' | translate}}</mat-label>
+                    <input matInput [matDatepicker]="leaveDate" formControlName="leaveDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="leaveDate"></mat-datepicker-toggle>
+                    <mat-datepicker #leaveDate></mat-datepicker>
+                </mat-form-field>
+
+                <button mat-flat-button (click)="removeLeave($index)">Supprimer</button>
+            </div>
+            }
+        </div>
+        <button mat-flat-button (click)="addLeave()">Ajouter un congé</button>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="leaveForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

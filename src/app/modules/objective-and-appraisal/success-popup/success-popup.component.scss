@@ -1,0 +1,23 @@
+h2 {
+    text-align: center;
+}
+button {
+    font-size: var(--text-lg);
+    background: var(--granted-box) !important;
+    color: var(--granted-text) !important;
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    mat-icon {
+        font-weight: 700;
+        font-size: var(--text-lg);
+    }
+}
+
+mat-dialog-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

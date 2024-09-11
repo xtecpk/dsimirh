@@ -1,0 +1,124 @@
+<div id="leave-management">
+
+    <h1>{{"Access_Logs" | translate}}</h1>
+
+    <div class="content">
+        <div class="leave-request-container">
+            <div class="request pending">
+                <h2>{{"Last_24_hours" | translate}}</h2>
+                <p class="number">1</p>
+                <div class="explain">
+                    <mat-icon>check_circle</mat-icon>
+                    <p>{{"Users" | translate}}</p>
+                </div>
+            </div>
+            <div class="request granted">
+                <h2>{{"Last_30_days" | translate}}</h2>
+                <p class="number">1</p>
+                <div class="explain">
+                    <mat-icon aria-hidden="true">check_circle</mat-icon>
+                    <p>{{"Users" | translate}}</p>
+                </div>
+            </div>
+            <div class="request rejected">
+                <h2>{{"Mobile_App_Usage" | translate}}</h2>
+                <p class="number">0%</p>
+                <div class="explain">
+                    <!-- <mat-icon>check_circle</mat-icon>
+                    <p>Users</p> -->
+                </div>
+            </div>
+            <div class="request maternity">
+                <h2>{{"Never_Logged_In" | translate}}</h2>
+                <p class="number">10%</p>
+                <div class="explain">
+                    <mat-icon>check_circle</mat-icon>
+                    <p>{{"Users" | translate}}</p>
+                </div>
+            </div>
+        </div>
+
+        <mat-card appearance="outlined">
+            <div class="users-container">
+                <p>{{"Users" | translate}}</p>
+                <p>27</p>
+            </div>
+
+        </mat-card>
+
+        <mat-card appearance="outlined">
+            <div class="users-container">
+                <p>{{"Active_Users" | translate}}</p>
+                <p>27</p>
+            </div>
+
+        </mat-card>
+
+        <mat-card appearance="outlined">
+            <div class="users-container">
+                <p>{{"Inactive_Users" | translate}}</p>
+                <p>0</p>
+            </div>
+
+        </mat-card>
+
+        <mat-card appearance="outlined">
+            <mat-card-header>{{"Graphical_Visualization_Of_User_Status" | translate}}</mat-card-header>
+            <mat-card-content>
+                <!-- Place for graph -->
+	          <div class="chart">
+                <canvas  id="accessLogChart"></canvas>
+
+              </div>
+            </mat-card-content>
+        </mat-card>
+
+
+        <mat-card appearance="outlined">
+            <mat-card-header>{{"Activity_Logs" | translate}}</mat-card-header>
+            <mat-card-content>
+                <!-- <div class="top-bar">
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search">
+                        <mat-icon>search</mat-icon>
+                    </div>
+                </div> -->
+
+                <!-- <table mat-table [dataSource]="staffDataSource" class="mat-elevation-z8">
+
+                    <ng-container matColumnDef="#">
+                        <th mat-header-cell *matHeaderCellDef> # </th>
+                        <td mat-cell *matCellDef="let element"> {{ staffDataSource.indexOf(element) + 1 }} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> action </th>
+                        <td mat-cell *matCellDef="let element"> {{element.action}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="ipAddress">
+                        <th mat-header-cell *matHeaderCellDef> IP Address </th>
+                        <td mat-cell *matCellDef="let element"> {{element.ipAddress}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="staffColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: staffColumns;"></tr>
+                </table> -->
+
+                <app-common-table [displayCols]="staffColumns" [dataSource]="staffDataSource" ></app-common-table>
+
+
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

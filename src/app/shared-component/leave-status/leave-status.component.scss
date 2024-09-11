@@ -1,0 +1,87 @@
+.leave-request-container {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid var(--border-gray);
+    border-radius: 8px;
+    background: var(--white-bg);
+
+    .request {
+        display: flex;
+        gap: 1.2rem;
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+        border-radius: 8px;
+
+        h2 {
+            font-size: var(--text-md);
+            font-weight: 500;
+        }
+
+        .number {
+            font-size: var(--text-xl);
+            font-weight: 500;
+        }
+
+        .explain {
+            display: flex;
+            gap: 5px;
+
+            .value-content {
+                display: flex;
+                flex-direction: column;
+
+            }
+        }
+
+
+        &.maternity {
+            background: var(--pending-box);
+
+            mat-icon {
+                color: var(--pending-icon);
+            }
+
+            .value {
+                color: var(--pending-text);
+            }
+        }
+
+        &.granted {
+            background: var(--granted-box);
+
+            mat-icon {
+                color: var(--granted-icon);
+            }
+
+            .value {
+                color: var(--granted-text);
+            }
+        }
+
+        &.rejected {
+            background: var(--rejected-box);
+
+            mat-icon {
+                color: var(--rejected-icon);
+            }
+
+            .value {
+                color: var(--rejected-text);
+            }
+        }
+
+        &.pending {
+            background: var(--maternity-box);
+
+            mat-icon {
+                color: var(--maternity-icon);
+            }
+
+            .value {
+                color: var(--maternity-text);
+            }
+        }
+    }
+}

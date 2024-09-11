@@ -1,0 +1,39 @@
+<div id="teams">
+    
+    <h1>{{'Teams' | translate}}</h1>
+
+    <div class="top-bar">
+        <button mat-flat-button (click)="openDialog()">{{'Add_Teams' | translate}}</button>
+    </div>
+
+    <div class="teams-container">
+        <!-- <mat-card appearance="outlined">
+            <mat-card-header>Team 1</mat-card-header>
+            <mat-card-content>
+                <p class="description">this is a description of team 1</p>
+                <h2>{{'Members' | translate}}:</h2>
+                <div class="members">
+                    <mat-chip>Jane Doe</mat-chip>
+                    <mat-chip>John Smith</mat-chip>
+                </div>
+            </mat-card-content>
+        </mat-card> -->
+
+        @for (team of allTeams; track $index) {
+            <mat-card appearance="outlined">
+                <mat-card-header>{{team.TeamName}}</mat-card-header>
+                <mat-card-content>
+                    <p class="description">{{team.Description}}</p>
+                    <h2>{{'Members' | translate}}:</h2>
+                    <div class="members">
+                        @for (member of team.members; track $index) {
+                            <mat-chip>{{member.EmployeeName}}</mat-chip>
+                        }
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        }
+        
+    </div>
+    
+</div>

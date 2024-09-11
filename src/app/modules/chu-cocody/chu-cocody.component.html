@@ -1,0 +1,203 @@
+<div id="chu-cocody">
+
+    <h1>{{"My_CHU_Cocody" | translate}}</h1>
+
+    <div class="main-container">
+        <div class="left-container">
+            <!-- First Card for agents -->
+            <mat-card appearance="outlined">
+                <mat-card-header>{{"Line_Managers" | translate}}</mat-card-header>
+                <mat-card-content>
+                    <!-- <div class="search-bar">
+                        <div class="search">
+                            <input type="text" placeholder="Search">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                    </div> -->
+                    <!-- 
+                    <table mat-table [dataSource]="agentsDataSource" class="mat-elevation-z8">
+
+                        <ng-container matColumnDef="#">
+                            <th mat-header-cell *matHeaderCellDef> # </th>
+                            <td mat-cell *matCellDef="let element"> {{ agentsDataSource.indexOf(element) + 1 }} </td>
+                        </ng-container>
+                        <ng-container matColumnDef="name1">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name1}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="name2">
+                            <th mat-header-cell *matHeaderCellDef> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name2}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="department">
+                            <th mat-header-cell *matHeaderCellDef> Department </th>
+                            <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+                        </ng-container>
+
+                        <ng-container matColumnDef="service">
+                            <th mat-header-cell *matHeaderCellDef> Service </th>
+                            <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="agentsColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: agentsColumns;"></tr>
+                    </table> -->
+                    <app-common-table [displayCols]="agentsColumns" [dataSourceIpt]="agentsDataSource"></app-common-table>
+
+
+                </mat-card-content>
+            </mat-card>
+
+            <!-- Second card for Announcement -->
+            @if (isAdmin) {
+            <mat-card appearance="outlined">
+                <mat-card-header>
+                    <p>{{"Announcement" | translate}}</p>
+                    <button mat-flat-button (click)="openDialog()">{{"Add_New_Announcement" | translate}}</button>
+                </mat-card-header>
+                <mat-card-content>
+                    <!-- <div class="search-bar">
+                            <div class="search">
+                                <input type="text" placeholder="Search">
+                                <mat-icon>search</mat-icon>
+                            </div>
+                        </div> -->
+
+                    <!-- <table mat-table [dataSource]="announcementsDataSource" class="mat-elevation-z8">
+    
+                            <ng-container matColumnDef="#">
+                                <th mat-header-cell *matHeaderCellDef> # </th>
+                                <td mat-cell *matCellDef="let element"> {{ announcementsDataSource.indexOf(element) + 1 }} </td>
+                            </ng-container>
+    
+                            <ng-container matColumnDef="title">
+                                <th mat-header-cell *matHeaderCellDef> TITLE </th>
+                                <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                            </ng-container>
+    
+                            <ng-container matColumnDef="date of issue">
+                                <th mat-header-cell *matHeaderCellDef> DATE OF ISSUE </th>
+                                <td mat-cell *matCellDef="let element"> {{element.issueDate}} </td>
+                            </ng-container>
+    
+                            <ng-container matColumnDef="end date">
+                                <th mat-header-cell *matHeaderCellDef> END DATE </th>
+                                <td mat-cell *matCellDef="let element"> {{element.endDate}} </td>
+                            </ng-container>
+    
+                            <ng-container matColumnDef="actions">
+                                <th mat-header-cell *matHeaderCellDef> Action </th>
+                                <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                            </ng-container>
+    
+                            <tr mat-header-row *matHeaderRowDef="announcementsColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: announcementsColumns;"></tr>
+                        </table> -->
+
+                    <app-common-table [displayCols]="announcementsColumns" [dataSource]="announcementsDataSource"
+                        [exportImport]="'export'"></app-common-table>
+
+
+                </mat-card-content>
+            </mat-card>
+            <mat-card>
+                <mat-card-header>{{"Organization_Chart" | translate}}</mat-card-header>
+                <mat-card-content class="content">
+                    <svg class="rd3t-svg rd3t-svg-d7280a1f-49c1-4a3b-bcfe-fa5337a0a550 " width="100%" height="100%">
+                        <g class="rd3t-g rd3t-g-79e121ed-dd04-4270-bc30-5edd8aa45a45"
+                            transform="translate(122.39395990081957,111.37438584364182) scale(0.49927462771621134)">
+                            <path class="rd3t-link" d="M0,0C100,0,100,-150,200,-150" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M0,0C100,0,100,150,200,150" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M200,-150C300,-150,300,-200,400,-200" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M200,-150C300,-150,300,-100,400,-100" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M200,150C300,150,300,100,400,100" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M200,150C300,150,300,200,400,200" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M400,-200C500,-200,500,-200,600,-200" style="opacity: 1;"></path>
+                            <path class="rd3t-link" d="M400,100C500,100,500,100,600,100" style="opacity: 1;"></path>
+                            <g id="41e598af-720c-47ad-964e-fce59b8055e9" class="rd3t-node" transform="translate(0,0)"
+                                style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Directorate SUS</text><text class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="b4455888-1783-4356-8726-afca77d10be3" class="rd3t-node"
+                                transform="translate(200,-150)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Department: Security</text><text class="rd3t-label__attributes"></text>
+                                </g>
+                            </g>
+                            <g id="a8f71fe1-0116-4dc2-9a03-552b2d5da9e9" class="rd3t-node"
+                                transform="translate(200,150)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Department: Intelligence</text><text
+                                        class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="fe3d5f05-a72d-4b80-835e-c8a4aa1b41b4" class="rd3t-node"
+                                transform="translate(400,-200)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Position: Agent</text><text class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="f549def3-aa51-4819-b254-5ee59e6e18f9" class="rd3t-leaf-node"
+                                transform="translate(400,-100)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Department Head: Jane Smith</text><text
+                                        class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="4e7d3e36-9ed1-4a43-bdc5-5bbbf3e140c3" class="rd3t-node"
+                                transform="translate(400,100)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Position: Senior Agent</text><text class="rd3t-label__attributes"></text>
+                                </g>
+                            </g>
+                            <g id="e9acc7c8-f4b3-4507-ad68-511655ee83fb" class="rd3t-leaf-node"
+                                transform="translate(400,200)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Department Head: Bob Anderson</text><text
+                                        class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="3ba77321-55ba-46d7-a229-be7574d30bb8" class="rd3t-leaf-node"
+                                transform="translate(600,-200)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Subdivision: Field Operations</text><text
+                                        class="rd3t-label__attributes"></text></g>
+                            </g>
+                            <g id="1e807ed1-26eb-4464-a2d1-b9d4ea6cadf0" class="rd3t-leaf-node"
+                                transform="translate(600,100)" style="opacity: 1;">
+                                <circle r="15"></circle>
+                                <g class="rd3t-label"><text class="rd3t-label__title" text-anchor="start"
+                                        x="40">Subdivision: Counterintelligence</text><text
+                                        class="rd3t-label__attributes"></text></g>
+                            </g>
+                        </g>
+                    </svg>
+                </mat-card-content>
+            </mat-card>
+            }
+        </div>
+        <div class="right-container">
+            <mat-card>
+                <mat-card-header>{{"Related_Content" | translate}}</mat-card-header>
+                <mat-card-content class="content">
+                    <div class="content-inner">
+                        <h3>{{"Agents" | translate}}</h3>
+                        <p>50+</p>
+                    </div>
+                    <div class="content-inner">
+                        <h3>{{"Announcements" | translate}}</h3>
+                        <p>2</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+</div>

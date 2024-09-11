@@ -1,0 +1,32 @@
+<h2 mat-dialog-title> {{'Add_Service' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="serviceForm">
+        <!-- <mat-form-field>
+            <mat-label> {{'Service_ID' | translate}}</mat-label>
+            <input matInput type="number" min="0" formControlName="serviceId">
+        </mat-form-field> -->
+        <mat-form-field>
+            <mat-label> {{'Service_Name' | translate}}</mat-label>
+            <input matInput formControlName="serviceName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Service_Description' | translate}}</mat-label>
+            <textarea matInput formControlName="serviceDescription"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Department_ID ' | translate}}</mat-label>
+            <mat-select formControlName="deptId">
+                @for (data of divisionData; track data) {
+                  <mat-option [value]="data.departmentId">{{data.department}}</mat-option>
+                }
+              </mat-select>
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="serviceForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

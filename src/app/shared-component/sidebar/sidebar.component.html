@@ -1,0 +1,222 @@
+<div id="main-siebar" class="row">
+    <div class="heading-row">
+        <h4 class="text-center">DSIMIRH</h4>
+    </div>
+    <mat-accordion class="example-headers-align" [multi]="false">
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title> <mat-icon fontSet="material-icons-outlined">home</mat-icon>{{"My_Dashboard" | translate}}
+            </mat-panel-title>
+            <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <ul>
+            <li [ngClass]=" (selectedTab === 'overview' )? 'active-li':''" routerLink="/overview" (click)="selectedTab = 'overview'">{{"Overview" | translate}}</li>
+            <li [ngClass]=" (selectedTab === 'profile' )? 'active-li':''" routerLink="/profile" (click)="selectedTab = 'profile'">{{"My_Profile2" | translate}}</li>
+            <li [ngClass]=" (selectedTab === 'chucocody' )? 'active-li':''" routerLink="/chucocody" (click)="selectedTab = 'chucocody'">{{"My_CHU_Cocody" | translate}}</li>
+            <li [ngClass]=" (selectedTab === 'myDocs' )? 'active-li':''" routerLink="/myDocs" (click)="selectedTab = 'myDocs'">{{"My_Docs" | translate}}</li>
+            @if (selectedUser == 'admin' || selectedUser == 'lineManager') {
+                <li [ngClass]=" (selectedTab === 'myLeave' )? 'active-li':''" routerLink="/myLeave" (click)="selectedTab = 'myLeave'">{{"My_Absences_Leaves" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'myEvaluation' )? 'active-li':''" routerLink="/myEvaluation" (click)="selectedTab = 'myEvaluation'">{{"My_Evaluation" | translate}}</li>
+            }
+        </ul>
+        <!-- <p>Overview</p>
+        <p>My Profile</p>
+        <p>My CHU Cocody</p> -->
+    </mat-expansion-panel>
+
+    @if (selectedUser == 'lineManager') {
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"My_Team" | translate}} </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'myCollaborators' )? 'active-li':''" routerLink="/myCollaborators" (click)="selectedTab = 'myCollaborators'">{{"My_Collaborators" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'collaboratorsLeaves' )? 'active-li':''" routerLink="/collaboratorsLeaves" (click)="selectedTab = 'collaboratorsLeaves'">{{"Collaborator's_Absence_Leave" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'expressNeed' )? 'active-li':''" routerLink="/expressNeed" (click)="selectedTab = 'expressNeed'">{{"To_Express_a_Need" | translate}}</li>
+            </ul>
+        </mat-expansion-panel>
+        
+    }
+
+    @if (selectedUser == 'lineManager' || selectedUser == 'admin') {
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">lock</mat-icon> {{"Leave_Management" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'hourly' )? 'active-li':''" routerLink="/leaveManagement/hourly" (click)="selectedTab = 'hourly'">{{"Permission_hour_by_hour" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'daily' )? 'active-li':''" routerLink="/leaveManagement/day" (click)="selectedTab = 'daily'">{{"Day_to_day_permission" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'annual' )? 'active-li':''" routerLink="/leaveManagement/annual" (click)="selectedTab = 'annual'">{{"Annual_Leave" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'maternity' )? 'active-li':''" routerLink="/leaveManagement/maternity" (click)="selectedTab = 'maternity'">{{"Maternity_Leave" | translate}}</li>
+            </ul>
+            <!-- <p>Overview</p>
+            <p>My Profile</p>
+            <p>My CHU Cocody</p> -->
+        </mat-expansion-panel>
+    }
+    <mat-expansion-panel routerLink="/sickLeaves" hideToggle disabled>
+        <mat-expansion-panel-header>
+            <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Sick_Leave" | translate}}
+            </mat-panel-title>
+            <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+        </mat-expansion-panel-header>
+        <!-- <p>This is the primary content of the panel.</p> -->
+    </mat-expansion-panel>
+    @if (selectedUser == 'lineManager') {
+        <mat-expansion-panel routerLink="/teamWorkSchedule" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Work_Schedule" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel routerLink="/evaluation" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Evaluation" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+    }
+    @if (selectedUser == 'user') {
+        <mat-expansion-panel routerLink="/myLeave" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"My_Absences_Leaves" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">lock</mat-icon> {{"Evaluation" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'objectiveAppraisal' )? 'active-li':''" routerLink="/objectivesAndAppraisal" (click)="selectedTab = 'objectiveAppraisal'">{{"Objectives_And_Appraisal" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'developmentPlan' )? 'active-li':''" routerLink="/developmentPlan" (click)="selectedTab = 'developmentPlan'">{{"Development_Plan" | translate}}</li>
+            </ul>
+            <!-- <p>Overview</p>
+            <p>My Profile</p>
+            <p>My CHU Cocody</p> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel routerLink="/employeeFeedback" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Feedback" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+    }
+    @if (selectedUser == 'admin') {
+        <mat-expansion-panel routerLink="/evaluation" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Evaluation" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+        <mat-expansion-panel routerLink="/bonus" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Bonus" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+    }
+    <!-- @if (selectedUser == 'admin') {
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Feedback" | translate}} </mat-panel-title>
+                <mat-panel-description> This is a summary of the content </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'feedback' )? 'active-li':''" routerLink="/feedback" (click)="selectedTab = 'feedback'">{{"Feedback" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'employeeFeedback' )? 'active-li':''" routerLink="/employeeFeedback" (click)="selectedTab = 'employeeFeedback'">{{"Employee_Feedback" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'nursingSurvey' )? 'active-li':''" routerLink="/nursingSurvey" (click)="selectedTab = 'nursingSurvey'">{{"Nursing_&_Midwifery_Surveys" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'doctorDentistSurvey' )? 'active-li':''" routerLink="/doctorDentistSurvey" (click)="selectedTab = 'doctorDentistSurvey'">{{"Doctor_and_Dentist_Surveys" | translate}}</li>
+            </ul>
+        </mat-expansion-panel>
+    } -->
+    
+    @if (selectedUser == 'admin') {
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Employee_Management" | translate}}</mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'staff' )? 'active-li':''" routerLink="/staff" (click)="selectedTab = 'staff'">{{"Staff" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'training' )? 'active-li':''" routerLink="/training" (click)="selectedTab = 'training'">{{"Training" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'teams' )? 'active-li':''" routerLink="/teams" (click)="selectedTab = 'teams'">{{"Teams" | translate}}</li>
+                <!-- <li [ngClass]=" (selectedTab === 'workSchedule' )? 'active-li':''" routerLink="/workSchedule" (click)="selectedTab = 'workSchedule'">{{"Work_Schedule" | translate}}</li> -->
+                <li [ngClass]=" (selectedTab === 'departure' )? 'active-li':''" routerLink="/departure" (click)="selectedTab = 'departure'">{{"Departure" | translate}}</li>
+            </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">lock</mat-icon> {{"Job_Management" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'jobs' )? 'active-li':''" routerLink="/jobs" (click)="selectedTab = 'jobs'">{{"Jobs" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'jobsByDepartment' )? 'active-li':''" routerLink="/jobsByDepartment" (click)="selectedTab = 'jobsByDepartment'">{{"Positions_By_Direction" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'requestsList' )? 'active-li':''" routerLink="/requestsList" (click)="selectedTab = 'requestsList'">{{"Requests_list" | translate}}</li>
+            </ul>
+    
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon>
+                    {{"Configuration" | translate}}</mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'department' )? 'active-li':''" routerLink="/department" (click)="selectedTab = 'department'">{{"Department" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'functions' )? 'active-li':''" routerLink="/functions" (click)="selectedTab = 'functions'">{{"Functions" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'grades' )? 'active-li':''" routerLink="/grades" (click)="selectedTab = 'grades'">{{"Grades" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'natureOfContract' )? 'active-li':''" routerLink="/natureOfContract" (click)="selectedTab = 'natureOfContract'">{{"Nature_of_Contract" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'annual' )? 'active-li':''" routerLink="/annual" (click)="selectedTab = 'annual'">{{"Annual" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'positions' )? 'active-li':''" routerLink="/positions" (click)="selectedTab = 'positions'">{{"Positions" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'privileges' )? 'active-li':''" routerLink="/privileges" (click)="selectedTab = 'privileges'">{{"Privileges" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'roles' )? 'active-li':''" routerLink="/roles" (click)="selectedTab = 'roles'">{{"Roles" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'services' )? 'active-li':''" routerLink="/services" (click)="selectedTab = 'services'">{{"Services" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'subDivision' )? 'active-li':''" routerLink="/subDivision" (click)="selectedTab = 'subDivision'">{{"Sub_Divisions" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'supports' )? 'active-li':''" routerLink="/supports" (click)="selectedTab = 'supports'">{{"Supports" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'units' )? 'active-li':''" routerLink="/units" (click)="selectedTab = 'units'">{{"Units" | translate}}</li>
+            </ul>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Reporting_Analysis" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <ul>
+                <li [ngClass]=" (selectedTab === 'hrDashboard' )? 'active-li':''" routerLink="/hrDashboard" (click)="selectedTab = 'hrDashboard'">{{"HR_Dashboard" | translate}}</li>
+                <li [ngClass]=" (selectedTab === 'accessLog' )? 'active-li':''" routerLink="/accessLog" (click)="selectedTab = 'accessLog'">{{"Access_Logs" | translate }}</li>
+            </ul>
+        </mat-expansion-panel>
+    }
+    @if (selectedUser == 'lineManager' || selectedUser == 'user') {
+        <mat-expansion-panel routerLink="/supports" hideToggle disabled>
+            <mat-expansion-panel-header>
+                <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Supports" | translate}}
+                </mat-panel-title>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <!-- <p>This is the primary content of the panel.</p> -->
+        </mat-expansion-panel>
+    }
+</mat-accordion>
+</div>

@@ -1,0 +1,219 @@
+#evaluation {
+    padding: 10px;
+
+    h1 {
+        font-weight: 500;
+        padding: 0.5rem 0 1.3rem 0;
+        font-size: var(--text-xl);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .evaluation-request-container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            background: var(--white-bg);
+
+            .request {
+                display: flex;
+                gap: 1.2rem;
+                flex-direction: column;
+                width: 100%;
+                padding: 15px;
+                background: var(--evaluation-request);
+                border: 1px solid var(--border-gray2);
+
+                h2 {
+                    font-size: var(--text-md);
+                    font-weight: 500;
+                }
+
+                .number {
+                    font-size: var(--text-xl);
+                    font-weight: 500;
+                }
+
+                &.ongoing {
+                    background: var(--evaluation-ongoing);
+                }
+
+                &.evaluated {
+                    background: var(--evaluated);
+                }
+                &.non-evaluated {
+                    background: var(--non-evaluated);
+                }
+
+                .update {
+                    color: var(--gray-text);
+                    font-size: var(--text-sm);
+                }
+            }
+        }
+
+        .middle {
+            display: flex;
+            gap: 10px;
+
+            .card-left {
+                flex: 1;
+            }
+
+            .card-right {
+                flex: 1;
+            }
+        }
+
+        ::ng-deep {
+
+            mat-card {
+                border: 1px solid var(--border-gray);
+                border-radius: 5px;
+                background: var(--white-bg);
+
+                .chart {
+                    width: 450px;
+                    height: 450px;
+                    margin: 0 auto !important;
+                }
+
+                mat-card-header {
+                    border-bottom: 1px solid var(--border-gray);
+                    font-weight: 500;
+                    font-size: var(--text-lg);
+                    padding: 20px;
+
+                }
+
+                mat-card-content {
+                    padding: 15px;
+                    color: var(--text-second);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    height: 100%;
+
+                    .select-container {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        gap: 20px;
+                        height: 100%;
+                        
+                        h2 {
+                            font-size: var(--text-lg);
+                        }
+
+                        .select-fields {
+                            display: flex;
+                            width: 100%;
+                            gap: 15px;
+
+                            select {
+                                width: 100%;
+                                border: 1px solid var(--border-gray2);
+                                border-radius: 5px;
+                                padding: 8px;
+                                font-size: var(--text-md);
+                                font-weight: 300;
+                                color: var(--text-second);
+                            }
+                        }
+
+                        .search-bar {
+                            display: flex;
+                            width: 100%;
+                            padding: 3px 8px;
+                            border: 1px solid var(--border-gray2);
+                            border-radius: 5px;
+
+                            input {
+                                width: 100%;
+                                border: 0;
+                                outline: transparent;
+                                font-size: var(--text-md);
+                            }
+                        }
+
+                        button {
+                            font-size: 1.2rem;
+                            // border-radius: 10px;
+                        }
+
+                    }
+
+                    .top-bar {
+                        display: flex;
+                        gap: 10px;
+                        width: 100%;
+                        justify-content: flex-end;
+
+                        .search-bar {
+                            box-shadow: 0px 1.5px 2px rgba(0, 0, 0, 0.3);
+                            display: flex;
+                            padding: 3px 8px;
+                            border-radius: 5px;
+
+                        }
+
+                        input {
+                            border: none;
+                            outline: none;
+                            font-size: var(--text-md);
+                        }
+                    }
+
+                    // .mat-mdc-table {
+                    //     border: 1px solid var(--border-gray2);
+                    //     border-radius: 8px;
+                    // }
+
+                    // .mat-mdc-header-row {
+                    //     font-size: var(--text-md);
+                    //     border-top-right-radius: 8px;
+                    //     border-top-left-radius: 8px;
+
+                    //     .mat-mdc-header-cell {
+                    //         // border-top-right-radius: 8px;
+                    //         // border-top-left-radius: 8px;
+                    //         border-bottom: 1px solid var(--border-gray2);
+                    //         background: var(--table-header);
+                    //     }
+
+                    //     .mat-mdc-header-cell:last-child {
+                    //         border-top-right-radius: 8px;
+                    //     }
+
+                    //     .mat-mdc-header-cell:first-child {
+                    //         border-top-left-radius: 8px;
+                    //     }
+                    // }
+
+                    // .mat-mdc-row:last-child {
+                    //     border-bottom-right-radius: 8px;
+                    //     border-bottom-left-radius: 8px;
+
+                    //     .mat-mdc-cell {
+                    //         border-bottom-right-radius: 8px;
+                    //         border-bottom-left-radius: 8px;
+                    //         border-bottom: 0;
+                    //     }
+                    // }
+
+                    // .mat-mdc-cell {
+                    //     border-bottom: 1px solid var(--border-gray);
+                    //     font-size: var(--text-md);
+                    //     color: var(--gray-text);
+                    // }
+                }
+            }
+        }
+    }
+
+}

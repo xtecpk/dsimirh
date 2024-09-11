@@ -1,0 +1,348 @@
+#employee-profile {
+    padding: 10px;
+
+    h1 {
+        font-weight: 500;
+        padding: 0.5rem 0 1.3rem 0;
+        font-size: var(--text-xl);
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        .profile-div {
+            width: 100%;
+            height: 30vh;
+            border: 2px solid var(--border-gray);
+            border-radius: 5px;
+            position: relative;
+
+            .back {
+                width: 100%;
+                height: 100%;
+
+                .back-top {
+                    width: 100%;
+                    height: 50%;
+                    background: #1f2737;
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                }
+            }
+            .top {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                padding: 10px 20px;
+                display: flex;
+
+                .image {
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    
+                    img {
+                        width: 22vh;
+                        height: 22vh;
+                        object-fit: cover;
+                        border-radius: 100%;
+                        border: 6px solid #eeeeee;
+                    }
+                }
+                .details {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-end;
+                    text-align: left;
+                    padding-bottom: 20px;
+
+                    h1 {
+                        padding: 0;
+                        line-height: 25px;
+                    }
+
+                }
+            }
+        }
+
+        .leave-request-container {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            border: 1px solid var(--border-gray);
+            border-radius: 8px;
+            background: var(--white-bg);
+
+            .request {
+                display: flex;
+                gap: 1.2rem;
+                flex-direction: column;
+                width: 100%;
+                padding: 15px;
+                border-radius: 8px;
+
+                h2 {
+                    font-size: var(--text-md);
+                    font-weight: 500;
+                }
+
+                .number {
+                    font-size: var(--text-xl);
+                    font-weight: 500;
+                }
+
+                .explain {
+                    display: flex;
+                    gap: 5px;
+
+                    .value-content {
+                        display: flex;
+                        flex-direction: column;
+
+                    }
+                }
+
+
+                &.pending {
+                    background: var(--pending-box);
+
+                    mat-icon {
+                        color: var(--pending-icon);
+                    }
+
+                    .value {
+                        color: var(--pending-text);
+                    }
+                }
+
+                &.granted {
+                    background: var(--granted-box);
+
+                    mat-icon {
+                        color: var(--granted-icon);
+                    }
+
+                    .value {
+                        color: var(--granted-text);
+                    }
+                }
+
+                &.rejected {
+                    background: var(--rejected-box);
+
+                    mat-icon {
+                        color: var(--rejected-icon);
+                    }
+
+                    .value {
+                        color: var(--rejected-text);
+                    }
+                }
+
+                &.maternity {
+                    background: var(--maternity-box);
+
+                    mat-icon {
+                        color: var(--maternity-icon);
+                    }
+
+                    .value {
+                        color: var(--maternity-text);
+                    }
+                }
+            }
+        }
+
+
+        button {
+            font-size: var(--text-md);
+            // border-radius: 10px;
+            width: fit-content;
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .label-elements {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 30px;
+                width: 100%;
+
+                &::after {
+                    content: '';
+                    width: 30%;
+                }
+            }
+
+            button {
+                font-size: var(--text-md);
+                // border-radius: 10px;
+                width: fit-content;
+            }
+
+            .form-label,
+            .upload-profile {
+                width: 30%;
+                display: flex;
+                flex-direction: column;
+                gap: 0.7rem;
+                font-size: var(--text-md);
+
+                .upload {
+                    position: relative;
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    label img {
+                        width: 100px;
+                        height: 100px;
+                        object-fit: cover;
+                        border-radius: 50%;
+                        cursor: pointer;
+                    }
+
+                    input {
+                        position: absolute;
+                        visibility: hidden;
+                        width: 100%;
+                        height: 100%;
+
+                    }
+                }
+
+                input,
+                select,
+                textarea {
+                    border: 1px solid var(--border-gray2);
+                    border-radius: 5px;
+                    padding: 8px;
+                    font-size: var(--text-md);
+                    font-weight: 300;
+                    color: var(--text-second);
+                    width: 100%;
+                }
+            }
+        }
+
+        ::ng-deep {
+
+            mat-card {
+                border: 1px solid var(--border-gray);
+                border-radius: 5px;
+                background: var(--white-bg);
+
+                mat-card-header {
+                    border-bottom: 1px solid var(--border-gray);
+                    font-weight: 500;
+                    font-size: var(--text-lg);
+                    padding: 20px;
+
+                }
+
+                
+
+                mat-card-content {
+                    padding: 15px;
+                    color: var(--text-second);
+                    display: flex;
+                    gap: 20px;
+
+                    .box {
+                        width: 100%;
+                        height: 200px;
+                        background: #fff;
+                    }
+
+                    .top-bar {
+                        display: flex;
+                        gap: 10px;
+                        width: 100%;
+                        justify-content: flex-end;
+
+                        .search-bar {
+                            box-shadow: 0px 1.5px 2px rgba(0, 0, 0, 0.3);
+                            display: flex;
+                            padding: 3px 8px;
+                            border-radius: 5px;
+
+                        }
+
+                        input {
+                            border: none;
+                            outline: none;
+                            font-size: var(--text-md);
+                        }
+
+                        select {
+                            border: 1px solid var(--border-gray2);
+                            border-radius: 5px;
+                            padding: 8px;
+                            font-size: var(--text-md);
+                            font-weight: 300;
+                            color: var(--text-second);
+                        }
+
+                    }
+
+                    // .mat-mdc-table {
+                    //     border: 1px solid var(--border-gray2);
+                    //     border-radius: 8px;
+                    // }
+
+                    // .mat-mdc-header-row {
+                    //     font-size: var(--text-md);
+                    //     border-top-right-radius: 8px;
+                    //     border-top-left-radius: 8px;
+
+                    //     .mat-mdc-header-cell {
+                    //         // border-top-right-radius: 8px;
+                    //         // border-top-left-radius: 8px;
+                    //         border-bottom: 1px solid var(--border-gray2);
+                    //         background: var(--table-header);
+                    //     }
+
+                    //     .mat-mdc-header-cell:last-child {
+                    //         border-top-right-radius: 8px;
+                    //     }
+
+                    //     .mat-mdc-header-cell:first-child {
+                    //         border-top-left-radius: 8px;
+                    //     }
+                    // }
+
+                    // .mat-mdc-row:last-child {
+                    //     border-bottom-right-radius: 8px;
+                    //     border-bottom-left-radius: 8px;
+
+                    //     .mat-mdc-cell {
+                    //         border-bottom-right-radius: 8px;
+                    //         border-bottom-left-radius: 8px;
+                    //         border-bottom: 0;
+                    //     }
+                    // }
+
+                    // .mat-mdc-cell {
+                    //     border-bottom: 1px solid var(--border-gray);
+                    //     font-size: var(--text-md);
+                    //     color: var(--gray-text);
+                    // }
+
+                }
+            }
+        }
+    }
+
+}

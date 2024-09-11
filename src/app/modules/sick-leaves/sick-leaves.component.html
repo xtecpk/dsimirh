@@ -1,0 +1,131 @@
+<div id="sick-leave">
+
+    <h1>{{'Sick_Leave' | translate}}</h1>
+    <div class="main-container">
+        <button mat-flat-button (click)="openDialog()">{{'Add_Sick_Leave' | translate}}</button>
+
+        <!-- <div class="left"> -->
+            <!-- <mat-card appearance="outlined">
+                <mat-card-header>Select Days Calender</mat-card-header>
+                <mat-card-content>
+                    <app-calender></app-calender>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>Select Team</mat-card-header>
+                <mat-card-content>
+                    <p>Select Team</p>
+                    <select>
+                        <option>Team A</option>
+                        <option>Team B</option>
+                    </select>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>Total Days</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>Number</p>
+                        <p class="blue">30</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>Shifts</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>Morning</p>
+                        <p class="blue">9AM-12AM</p>
+                    </div>
+                    <div class="column">
+                        <p>Evening</p>
+                        <p class="blue">1PM-5PM</p>
+                    </div>
+                    <div class="column">
+                        <p>Night</p>
+                        <p class="blue">6PM-12AM</p>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+            <mat-card appearance="outlined">
+                <mat-card-header>Upcoming Leaves</mat-card-header>
+                <mat-card-content>
+                    <div class="column">
+                        <p>Number of Leaves</p>
+                        <p class="red">15</p>
+                    </div>
+                    <div class="column">
+                        <p>Starting From</p>
+                        <p class="red">30/12/2024</p>
+                    </div>
+                </mat-card-content>
+            </mat-card> -->
+            <mat-card appearance="outlined">
+                <mat-card-header>{{'List_Of_Sick_Leave' | translate}}</mat-card-header>
+                <mat-card-content class="table-container">
+                    <!-- <div class="top-bar">
+                        <div class="search-bar">
+                            <input type="text" placeholder="Search">
+                            <mat-icon>search</mat-icon>
+                        </div>
+                    </div> -->
+        
+                    <!-- <table mat-table [dataSource]="workScheduleSourceData" class="mat-elevation-z8">
+        
+                        <ng-container matColumnDef="#">
+                            <th mat-header-cell *matHeaderCellDef> # </th>
+                            <td mat-cell *matCellDef="let element"> {{ workScheduleSourceData.indexOf(element) + 1 }} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="teamCode">
+                            <th mat-header-cell *matHeaderCellDef> Team Code </th>
+                            <td mat-cell *matCellDef="let element"> {{element.teamCode}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="shift">
+                            <th mat-header-cell *matHeaderCellDef> {{'Shift' | translate}} </th>
+                            <td mat-cell *matCellDef="let element"> {{element.shift}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="starting">
+                            <th mat-header-cell *matHeaderCellDef> Starting </th>
+                            <td mat-cell *matCellDef="let element"> {{element.starting}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="ending">
+                            <th mat-header-cell *matHeaderCellDef> Ending </th>
+                            <td mat-cell *matCellDef="let element"> {{element.ending}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="leaveConflicts">
+                            <th mat-header-cell *matHeaderCellDef> Leave Conflicts </th>
+                            <td mat-cell *matCellDef="let element"> {{element.leaveConflicts}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="service">
+                            <th mat-header-cell *matHeaderCellDef> Service </th>
+                            <td mat-cell *matCellDef="let element"> {{element.service}} </td>
+                        </ng-container>
+        
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef> Actions </th>
+                            <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                        </ng-container>
+        
+                        <tr mat-header-row *matHeaderRowDef="workScheduleColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: workScheduleColumns;"></tr>
+                    </table> -->
+                    <app-common-table [displayCols]="sickLeaveColumns" [dataSourceIpt]="sickLeaveDataSource" [exportImport]="'export'" ></app-common-table>
+        
+                </mat-card-content>
+            </mat-card>
+        <!-- </div>
+        <div class="right"> -->
+            <!-- <mat-card appearance="outlined">
+                <mat-card-header>Add Work Schedule</mat-card-header>
+                <mat-card-content> -->
+                <!-- </mat-card-content>
+            </mat-card> -->
+        <!-- </div> -->
+    </div>
+</div>

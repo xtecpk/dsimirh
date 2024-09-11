@@ -1,0 +1,73 @@
+<div id="nursing-survey">
+
+    <h1>{{"Nursing_Surveys" | translate}}</h1>
+
+    <button mat-flat-button class="top-button" routerLink="feedbackForm">{{"View_Feedback_Form" | translate}}</button>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{"Details" | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{"Request_Survey" | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </div> -->
+
+            <!-- <table mat-table [dataSource]="nursingDataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef> # </th>
+                    <td mat-cell *matCellDef="let element"> {{ nursingDataSource.indexOf(element) + 1 }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef> Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rating">
+                    <th mat-header-cell *matHeaderCellDef> Rating </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> description </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.description }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> Created At </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.createdAt }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="careGiver">
+                    <th mat-header-cell *matHeaderCellDef> Care Giver </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.careGiver }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="nursingColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: nursingColumns;"></tr>
+            </table> -->
+            <app-common-table [displayCols]="nursingColumns" [dataSource]="nursingDataSource" [exportImport]="'export'" ></app-common-table>
+
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,108 @@
+@if (fieldsToShow.includes('hour-to-hour')) {
+    <h2 mat-dialog-title> {{"My_Permission_hour_by_hour" | translate}} </h2>
+}
+@if (fieldsToShow.includes('day-to-day')) {
+    <h2 mat-dialog-title> {{"My_Permission_day_by_day" | translate}} </h2>
+}
+@if (fieldsToShow.includes('annual')) {
+    <h2 mat-dialog-title> {{"My_Annual_Leave" | translate}} </h2>
+}
+@if (fieldsToShow.includes('maternity')) {
+    <h2 mat-dialog-title> {{"My_Maternity_Leave" | translate}} </h2>
+}
+
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="leaveForm">
+        <mat-form-field>
+            <mat-label>{{"Permission_Object" | translate}}</mat-label>
+            <input matInput formControlName="permission">
+        </mat-form-field>
+        @if (!fieldsToShow.includes('maternity')) {
+            <mat-form-field>
+                <mat-label>{{"Exit_Place" | translate}}</mat-label>
+                <input matInput formControlName="exitPlace">
+            </mat-form-field>
+        }
+        @if (!fieldsToShow.includes('maternity')) {
+            <mat-form-field>
+                <mat-label>{{"Departure_Date" | translate}}</mat-label>
+                <input matInput [matDatepicker]="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+        }
+
+        @if (!fieldsToShow.includes('hour-to-hour') && !fieldsToShow.includes('maternity')) {
+        <mat-form-field>
+            <mat-label>{{"Return_Date" | translate}}</mat-label>
+            <input matInput [matDatepicker]="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        }
+
+        @if (fieldsToShow.includes('hour-to-hour')) {
+        <p>{{"Departure_Time" | translate}}</p>
+        <input type="time" formControlName="departureTime">
+
+        <p>{{"Return_Time" | translate}}</p>
+        <input type="time" formControlName="returnTime">
+
+        <p>{{"Effective_Return_Time" | translate}}</p>
+        <input type="time" formControlName="effectiveTime">
+        }
+
+        @if (!fieldsToShow.includes('hour-to-hour') && !fieldsToShow.includes('maternity')) {
+            <mat-form-field>
+                <mat-label>{{"Effective_Date" | translate}}</mat-label>
+                <input matInput [matDatepicker]="startDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+                <mat-datepicker #startDate></mat-datepicker>
+            </mat-form-field>
+        }
+
+        @if (fieldsToShow.includes('maternity')) {
+            <mat-form-field>
+                <mat-label>{{"Expected_Date" | translate}}</mat-label>
+                <input matInput [matDatepicker]="expected" formControlName="expectedDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="expected"></mat-datepicker-toggle>
+                <mat-datepicker #expected></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Leave_Start" | translate}}</mat-label>
+                <input matInput [matDatepicker]="leaveStart" formControlName="leaveStart">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="leaveStart"></mat-datepicker-toggle>
+                <mat-datepicker #leaveStart></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Leave_End" | translate}}</mat-label>
+                <input matInput [matDatepicker]="leaveEnd" formControlName="leaveEnd">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="leaveEnd"></mat-datepicker-toggle>
+                <mat-datepicker #leaveEnd></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Recovery_Date" | translate}}</mat-label>
+                <input matInput [matDatepicker]="recovery" formControlName="recoveryDate">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="recovery"></mat-datepicker-toggle>
+                <mat-datepicker #recovery></mat-datepicker>
+            </mat-form-field>
+            }
+
+        <p>{{"Justification_Document" | translate}}</p>
+        <input type="file" formControlName="document">
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="leaveForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

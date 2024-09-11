@@ -1,0 +1,32 @@
+#main-siebar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .heading-row{
+        // width: 80%;
+        padding: 1.5rem;
+    }
+    mat-expansion-panel{
+        // width: 80%;
+        box-shadow:unset;
+        background: #fff;
+        ul{
+            li{
+                cursor: pointer;
+                padding: .5rem;
+                margin-bottom: 5px !important;
+                &.active-li ,&:hover{
+                    background-color: #EDEDED;
+                    border-radius: 5px;
+                }
+            }
+        }
+        mat-panel-title{
+            color: black;
+            font-weight: 400;
+            mat-icon{
+                margin-right: 10px !important;
+            }
+        }
+    }
+}

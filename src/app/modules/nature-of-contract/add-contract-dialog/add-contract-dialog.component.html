@@ -1,0 +1,34 @@
+<h2 mat-dialog-title> {{"Add_Contract_Details" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="contractForm">
+        <mat-form-field>
+            <mat-label>{{"Contract_Name" | translate}}</mat-label>
+            <input matInput formControlName="contractName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Contract_Description" | translate}}</mat-label>
+            <input matInput formControlName="contractDescription">
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>{{"Start_Date" | translate}}</mat-label>
+            <input matInput [matDatepicker]="created" formControlName="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="created"></mat-datepicker-toggle>
+            <mat-datepicker #created></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{"End_Date" | translate}}</mat-label>
+            <input matInput [matDatepicker]="ended" formControlName="endDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="ended"></mat-datepicker-toggle>
+            <mat-datepicker #ended></mat-datepicker>
+          </mat-form-field> -->
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="contractForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

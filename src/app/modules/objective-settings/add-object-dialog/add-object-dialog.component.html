@@ -1,0 +1,65 @@
+<h2 mat-dialog-title> {{'OBJECTIVES_SETTING' | translate}} (N+1) </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="objectForm">
+        <mat-form-field>
+            <mat-label> {{'Objective_Title' | translate}}</mat-label>
+            <input matInput formControlName="title"
+                placeholder="e.g., Increase Sales Revenue">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Weight' | translate}}</mat-label>
+            <input matInput formControlName="weight" placeholder="e.g., 30%">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Specific_Goals' | translate}}</mat-label>
+            <textarea matInput formControlName="goals"
+                placeholder="e.g., Achieve a 15% increase in sales revenue over the next quarter."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Key_Actions' | translate}}</mat-label>
+            <textarea matInput formControlName="keyActions"
+                placeholder="List specific actions or steps required to achieve the objective."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Resources_Required' | translate}}</mat-label>
+            <textarea matInput formControlName="requiredResources"
+                placeholder="e.g., Marketing budget, additional staff, training programs."></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label> {{'Timeline_Start' | translate}}</mat-label>
+            <input matInput [matDatepicker]="startDate" formControlName="startTime">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Timeline_End' | translate}}</mat-label>
+            <input matInput [matDatepicker]="endDate" formControlName="endTime">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Success_Metrics' | translate}}</mat-label>
+            <textarea matInput formControlName="successMetric"
+                placeholder="e.g., Percentage increase in sales revenue, number of new customers acquired, return on investment (ROI)."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Potential_Challenges' | translate}}</mat-label>
+            <textarea matInput formControlName="potentialChanges"
+                placeholder="e.g., Market competition, economic downturns, resource limitations."></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label> {{'Support_Needed' | translate}}</mat-label>
+            <textarea matInput formControlName="supportNeeded"
+                placeholder="e.g., Assistance from the marketing team, approval for budget allocation, access to data analytics tools."></textarea>
+        </mat-form-field>
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()"> {{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="objectForm.invalid"> {{'Submit' | translate}}</button>
+</mat-dialog-actions>

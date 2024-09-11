@@ -1,0 +1,76 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; 
+    font-size: 90%; 
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background: #f1f5f8; }
+
+button{
+    border-radius: unset !important;
+}
+:root {
+    --border-gray: #dfdfdf;
+    --border-gray2: #cacaca;
+    --white-bg: #fff;
+    --red-text: #ff2c2c;
+    --blue-text: #4c4cff;
+    --gray-text: #8e8e8e;
+    --table-header: #eeeff0;
+
+    --primary: #3a82f5;
+    --light-blue: #dcebf4;
+
+    --text-xxl: 1.9rem;
+    --text-xl: 1.7rem;
+    --text-lg: 1.5rem;
+    --text-md: 1.2rem;
+    --text-sm: 1rem;
+    --text-xsm: 0.8rem;
+
+    --text-second: #575757;
+    --text-third: #646464;
+
+    // Request box color
+
+    --pending-box: #fffae7;
+    --pending-icon: #fca500;
+    --pending-text: #9d703a;
+
+    --granted-box: #edfcf3;
+    --granted-icon: #48ff00;
+    --granted-text: #599472;
+
+    --rejected-box: #fef2f2;
+    --rejected-icon: #f90f01;
+    --rejected-text: #b04c4b;
+
+    --maternity-box: #eff7ff;
+    --maternity-icon: #0001ff;
+    --maternity-text: #5670c4;
+
+    // Evaluation boxes
+
+    --evaluation-request: #ffcbbf;
+    --evaluation-ongoing: #fef0e9;
+    --evaluated: #e6eaff;
+    --non-evaluated: #dffbfe;
+
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+}
+div.mat-mdc-select-panel {
+background-color: var(--mdc-dialog-container-color, white) !important;
+}
+* {
+    margin: 0 !important;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.mdc-dialog--open .mat-mdc-dialog-surface {
+    border-radius: 0 !important;
+    min-width: 750px !important;
+}

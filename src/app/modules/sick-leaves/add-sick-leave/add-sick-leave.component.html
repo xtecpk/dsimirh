@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>{{'Add_Sick_Leave' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="leaveForm">
+        <mat-form-field>
+            <mat-label>{{'Employee_Name' | translate}}</mat-label>
+            <input matInput type="text" formControlName="employeeName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Start_Date' | translate}}</mat-label>
+            <input matInput [matDatepicker]="departureDate" formControlName="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="departureDate"></mat-datepicker-toggle>
+            <mat-datepicker #departureDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Date_Resumed' | translate}}</mat-label>
+            <input matInput [matDatepicker]="dateResumed" formControlName="dateResumed">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dateResumed"></mat-datepicker-toggle>
+            <mat-datepicker #dateResumed></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Leave_Reason' | translate}}</mat-label>
+            <select matNativeControl required formControlName="leaveReason">
+              <option value="1">{{'Traffic_Accident' | translate}}</option>
+              <option value="2">{{'Work_Accident' | translate}}</option>
+              <option value="3">{{'Sick_Rest' | translate}}</option>
+            </select>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'Details' | translate}}</mat-label>
+            <textarea matInput type="text" formControlName="details"></textarea>
+          </mat-form-field>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="leaveForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

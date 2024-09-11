@@ -1,0 +1,13 @@
+::ng-deep {
+
+    mat-form-field {
+        width: 100%;
+    }
+
+    button {
+        font-size: var(--text-md);
+        // border-radius: 10px;
+        width: fit-content;
+    }
+
+}

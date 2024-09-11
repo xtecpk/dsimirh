@@ -1,0 +1,40 @@
+#main-view{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+
+    // &.row {
+        app-header {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    // }
+    .sidebar{
+        padding-right: 25px;
+        background-color: #fff;
+        height: 100%;
+        overflow-y: auto;
+        flex: 2;
+    }
+    .main-content{
+        padding-left: 0px;
+        width: unset;
+        flex: 10;
+        overflow: hidden;
+    }
+    .outlet {
+        height: 92vh;
+        overflow-y: auto;
+    }
+
+    @media screen and (max-width: 1500px) {
+        #sidebar {
+            display: none;
+            width: 0;
+        }
+        .main-content {
+            width: 100%;
+        }
+    }
+}

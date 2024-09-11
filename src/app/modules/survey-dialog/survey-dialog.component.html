@@ -1,0 +1,89 @@
+<h2 mat-dialog-title>{{'Survey_Form' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="surveyForm">
+
+      <mat-form-field>
+        <mat-label>{{'Employee_Name' | translate}}</mat-label>
+        <mat-chip-grid #chipGrid3 aria-label="Enter Employee Name">
+            @for (employee of employees(); track employee) {
+            <mat-chip-row (removed)="removeEmployee(employee)" [editable]="true" (edited)="editEmployee(employee, $event)"
+                [aria-description]="'press enter to edit ' + employee.name">
+                {{employee.name}}
+                <button matChipRemove [attr.aria-label]="'remove ' + employee.name">
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </mat-chip-row>
+            }
+            <input placeholder="{{'New_employee' | translate}}..." [matChipInputFor]="chipGrid3"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                (matChipInputTokenEnd)="addEmployee($event)" formControlName="employee" />
+        </mat-chip-grid>
+    </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>Patient Email</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Patient Phone Numbers</mat-label>
+            <input matInput formControlName="phoneNo">
+        </mat-form-field> -->
+
+        <mat-tab-group>
+            <mat-tab  label="Email">
+                    <mat-form-field>
+                        <mat-label>{{'Patient_Email' | translate}}</mat-label>
+                        <mat-chip-grid #chipGrid aria-label="Enter emails">
+                            @for (email of emails(); track email) {
+                            <mat-chip-row (removed)="remove(email)" [editable]="true" (edited)="edit(email, $event)"
+                                [aria-description]="'press enter to edit ' + email.name">
+                                {{email.name}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + email.name">
+                                    <mat-icon>cancel</mat-icon>
+                                </button>
+                            </mat-chip-row>
+                            }
+                            <input placeholder="{{'New_email' | translate}}..." [matChipInputFor]="chipGrid"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="add($event)" formControlName="email" />
+                        </mat-chip-grid>
+                    </mat-form-field>
+            </mat-tab> 
+            <mat-tab label="Phone">
+                    <mat-form-field>
+                        <mat-label>{{'Patient_Phone_Numbers' | translate}}</mat-label>
+                        <mat-chip-grid #chipGrid2 aria-label="Enter phone numbers">
+                            @for (phone of phones(); track phone) {
+                              <mat-chip-row
+                                (removed)="removePhone(phone)"
+                                [editable]="true"
+                                (edited)="editPhone(phone, $event)"
+                                [aria-description]="'press enter to edit ' + phone.name"
+                              >
+                                {{phone.name}}
+                                <button matChipRemove [attr.aria-label]="'remove ' + phone.name">
+                                  <mat-icon>cancel</mat-icon>
+                                </button>
+                              </mat-chip-row>
+                            }
+                            <input
+                              placeholder="{{'New_phone_number' | translate}}..."
+                              [matChipInputFor]="chipGrid2"
+                              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                              [matChipInputAddOnBlur]="addOnBlur"
+                              (matChipInputTokenEnd)="addPhone($event)"
+                              formControlName = "phoneNo"
+                            />
+                          </mat-chip-grid>
+                        <!-- <input matInput formControlName="phoneNo"> -->
+                    </mat-form-field>
+            </mat-tab>
+        </mat-tab-group>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Cancel' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="surveyForm.invalid">{{'Add' | translate}}</button>
+</mat-dialog-actions>

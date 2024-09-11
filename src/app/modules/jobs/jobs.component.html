@@ -1,0 +1,59 @@
+<div id="jobs">
+
+    <h1>{{"Jobs" | translate}}</h1>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{"Jobs_Details" | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{"Add_Job" | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </div> -->
+
+            <!-- <table mat-table [dataSource]="jobsDataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef> # </th>
+                    <td mat-cell *matCellDef="let element"> {{ jobsDataSource.indexOf(element) + 1 }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="department">
+                    <th mat-header-cell *matHeaderCellDef> Department </th>
+                    <td mat-cell *matCellDef="let element"> {{element.department}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="jobTitle">
+                    <th mat-header-cell *matHeaderCellDef> Job Title </th>
+                    <td mat-cell *matCellDef="let element"> {{element.jobTitle}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="jobCode">
+                    <th mat-header-cell *matHeaderCellDef> Job Code </th>
+                    <td mat-cell *matCellDef="let element"> {{element.jobCode}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="noOfJobs">
+                    <th mat-header-cell *matHeaderCellDef> No Of Jobs </th>
+                    <td mat-cell *matCellDef="let element"> {{element.noOfJobs}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="jobsColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: jobsColumns;"></tr>
+            </table> -->
+
+            <app-common-table [displayCols]="jobsColumns" [dataSourceIpt]="jobsDataSource" [exportImport]="'export'" ></app-common-table>
+
+
+        </mat-card-content>
+    </mat-card>
+</div>

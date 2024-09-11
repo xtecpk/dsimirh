@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>{{'Add_Training' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="trainingForm">
+        <mat-form-field>
+            <mat-label>{{'Employee_Name' | translate}}</mat-label>
+            <input matInput type="text" formControlName="employeeName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Start_Date' | translate}}</mat-label>
+            <input matInput [matDatepicker]="departureDate" formControlName="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="departureDate"></mat-datepicker-toggle>
+            <mat-datepicker #departureDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Date_Resumed' | translate}}</mat-label>
+            <input matInput [matDatepicker]="dateResumed" formControlName="dateResumed">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="dateResumed"></mat-datepicker-toggle>
+            <mat-datepicker #dateResumed></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Training' | translate}}</mat-label>
+            <input matInput type="text" formControlName="training">
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'Details' | translate}}</mat-label>
+            <textarea matInput type="text" formControlName="details"></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <label>{{'Justification_Document' | translate}}</label>
+            <input type="file" formControlName="justificationDoc">
+        </mat-form-field>
+        <mat-form-field>
+            <label>{{'Please_Download' | translate}}</label>
+            <input type="file" formControlName="pleaseDownload">
+        </mat-form-field> -->
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="trainingForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

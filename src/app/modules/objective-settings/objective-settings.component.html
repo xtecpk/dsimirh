@@ -1,0 +1,66 @@
+<div id="objective-setting">
+
+    <h1>{{'Objective_Setting' | translate}}</h1>
+
+    <button mat-flat-button>{{'Start_my_evaluation' | translate}}</button>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{'Objectives_Table' | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{'Add_Object' | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+            <!-- <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </div> -->
+
+            <!-- <table mat-table [dataSource]="servicesDataSource" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef> # </th>
+                    <td mat-cell *matCellDef="let element"> {{ servicesDataSource.indexOf(element) + 1 }} </td>
+                </ng-container>
+                <ng-container matColumnDef="serviceName">
+                    <th mat-header-cell *matHeaderCellDef> Service Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.serviceName}} </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="description">
+                    <th mat-header-cell *matHeaderCellDef> Description </th>
+                    <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="departmentId">
+                    <th mat-header-cell *matHeaderCellDef> Department Id </th>
+                    <td mat-cell *matCellDef="let element"> {{element.departmentId}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="createdAt">
+                    <th mat-header-cell *matHeaderCellDef> Created At </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.createdAt | date: 'dd MMM, yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="updatedAt">
+                    <th mat-header-cell *matHeaderCellDef> Updated At </th>
+                    <td mat-cell *matCellDef="let element"> {{ element.updatedAt | date: 'dd MMM, yyyy' }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element"><mat-icon>edit</mat-icon></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="servicesColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: servicesColumns;"></tr>
+            </table> -->
+            <app-common-table [displayCols]="objectColumns" [dataSource]="objectDataSource" ></app-common-table>
+
+
+        </mat-card-content>
+    </mat-card>
+
+    
+</div>

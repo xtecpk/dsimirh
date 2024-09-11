@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>{{'Add_a_session_of_the_month' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="workForm">
+        <mat-form-field>
+            <mat-label>{{'Please_select_a_service' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectTeam">
+                <option value="1">Team 1</option>
+                <option value="2">Team 2</option>
+                <option value="3">Team 3</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Please_select_a_shift' | translate}}</mat-label>
+            <select matNativeControl formControlName="selectShift">
+                <option value="morning">{{'Morning' | translate}}</option>
+                <option value="evening">{{'Evening' | translate}}</option>
+                <option value="night">{{'Night' | translate}}</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Start_Date' | translate}}</mat-label>
+            <input matInput [matDatepicker]="startDate" formControlName="startDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'End_Date' | translate}}</mat-label>
+            <input matInput [matDatepicker]="endDate" formControlName="endDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'Number_of_beds' | translate}}</mat-label>
+            <input matInput type="text" formControlName="noOfBeds">
+          </mat-form-field>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="workForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

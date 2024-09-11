@@ -1,0 +1,21 @@
+<h2 mat-dialog-title> {{'Add_Leave_Type' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="leaveForm">
+        <mat-form-field>
+            <mat-label>{{'Select_Type' | translate}}</mat-label>
+            <select matNativeControl required formControlName="leaveType">
+              <option value="hour-to-hour">{{'Permission_hour_by_hour' | translate}}</option>
+              <option value="day-to-day">{{'Day_to_day_permission' | translate}}</option>
+              <option value="annual">{{'Annual_Leave' | translate}}</option>
+              <option value="maternity">{{'Maternity_Leave' | translate}}</option>
+            </select>
+          </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="leaveForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

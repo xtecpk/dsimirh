@@ -1,0 +1,13 @@
+<h2 mat-dialog-title>{{"Select_one_of_them" | translate}}: </h2>
+<mat-dialog-content class="mat-typography">
+
+    <mat-chip-set aria-label="Selection">
+        <a routerLink="/objectiveSettings" (click)="onNoClick()"><mat-chip>{{"Objective_Setting" | translate}}  {{(selectedUser == 'lineManager') ? '(N+1)' : ''}}</mat-chip></a>
+        <a routerLink="/annualReviews" (click)="onNoClick()"><mat-chip>{{"Evaluation" | translate}}</mat-chip></a>
+      </mat-chip-set>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-flat-button (click)="onNoClick()">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

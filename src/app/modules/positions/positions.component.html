@@ -1,0 +1,17 @@
+<div id="positions">
+
+    <h1>{{'Position' | translate}}</h1>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{'Position_Details' | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{'Add_Position' | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+
+            <app-common-table [displayCols]="positionsColumns" [dataSourceIpt]="positionDataSource" ></app-common-table>
+
+
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,38 @@
+<h2 mat-dialog-title> {{'Add_Privilege_Details' | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="privilegeForm">
+        <mat-form-field>
+            <mat-label>{{'Privilege_ID' | translate}}</mat-label>
+            <input matInput type="number" min="0" formControlName="privilegeId">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Privilege_Name' | translate}}</mat-label>
+            <input matInput formControlName="privilegeName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Privilege_Description' | translate}}</mat-label>
+            <textarea matInput formControlName="privilegeDescription"></textarea>
+        </mat-form-field>
+        <!-- <mat-form-field>
+            <mat-label>{{'Created_At' | translate}}</mat-label>
+            <input matInput [matDatepicker]="created" formControlName="createdDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="created"></mat-datepicker-toggle>
+            <mat-datepicker #created></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>{{'Updated_At' | translate}}</mat-label>
+            <input matInput [matDatepicker]="updated" formControlName="updatedDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="updated"></mat-datepicker-toggle>
+            <mat-datepicker #updated></mat-datepicker>
+          </mat-form-field> -->
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="privilegeForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

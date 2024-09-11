@@ -1,0 +1,24 @@
+<h2 mat-dialog-title> {{"Add_Details" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="deptForm">
+        <!-- <mat-form-field>
+            <mat-label>{{"Department_ID" | translate}}</mat-label>
+            <input matInput formControlName="deptId">
+        </mat-form-field> -->
+        <mat-form-field>
+            <mat-label>{{"Department_Name" | translate}}</mat-label>
+            <input matInput formControlName="deptName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Department_Director" | translate}}</mat-label>
+            <input matInput formControlName="deptDirector">
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="deptForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

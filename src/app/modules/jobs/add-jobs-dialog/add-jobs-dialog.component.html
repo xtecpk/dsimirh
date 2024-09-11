@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{"Add_Job" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="jobsForm">
+        <mat-form-field>
+            <mat-label>{{"Job_Title" | translate}}</mat-label>
+            <input matInput formControlName="jobTitle" placeholder="Enter Job Title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Job_Code" | translate}}</mat-label>
+            <input matInput formControlName="jobCode" placeholder="Enter Job Code">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Number_of_Jobs" | translate}}</mat-label>
+            <input matInput formControlName="noOfJobs" placeholder="Enter Job Code">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Department" | translate}}</mat-label>
+            <input matInput formControlName="department" placeholder="Enter Department">
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Cancel" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="jobsForm.invalid">{{"Add" | translate}}</button>
+</mat-dialog-actions>

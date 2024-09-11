@@ -1,0 +1,121 @@
+<div id="feedback">
+
+    <h1>{{"Provide_Feedback" | translate}}</h1>
+
+    <div class="top">
+
+        <mat-card appearance="outlined" class="card-left">
+            <mat-card-header>{{"Select_The_Person" | translate}}</mat-card-header>
+            <mat-card-content>
+                <div class="left">
+                    <p>{{"Select_the_department" | translate}}</p>
+                    <select>
+                        <option>{{"Department" | translate}} 1</option>
+                        <option>{{"Department" | translate}} 2</option>
+                        <option>{{"Department" | translate}} 3</option>
+                        <option>{{"Department" | translate}} 4</option>
+                        <option>{{"Department" | translate}} 5</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <p>{{"Select_The_Person" | translate}}</p>
+                    <select>
+                        <option>Select...</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                        <option>Micheal Johnson</option>
+                        <option>Emi Davis</option>
+                    </select>
+                </div>
+                </mat-card-content>
+        </mat-card>
+
+        <mat-card appearance="outlined" class="card-right">
+            <mat-card-header>{{"Select_Colleague" | translate}}</mat-card-header>
+            <mat-card-content>
+                <div class="left">
+                    <p>{{"Select_the_department" | translate}}</p>
+                    <select>
+                        <option>{{"Department" | translate}} 1</option>
+                        <option>{{"Department" | translate}} 2</option>
+                        <option>{{"Department" | translate}} 3</option>
+                        <option>{{"Department" | translate}} 4</option>
+                        <option>{{"Department" | translate}} 5</option>
+                    </select>
+                </div>
+                <div class="right">
+                    <p>{{"Select_Colleague" | translate}}</p>
+                    <select>
+                        <option>Select...</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                        <option>Micheal Johnson</option>
+                        <option>Emi Davis</option>
+                    </select>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <button mat-flat-button>{{"Submit" | translate}}</button>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>{{"Reviews" | translate}}</mat-card-header>
+        <mat-card-content>
+            <!-- <div class="top-bar">
+                <div class="search-bar">
+                    <input type="text" placeholder="Search">
+                    <mat-icon>search</mat-icon>
+                </div>
+            </div> -->
+
+            <!-- <table mat-table [dataSource]="reviewSourceData" class="mat-elevation-z8">
+
+                <ng-container matColumnDef="#">
+                    <th mat-header-cell *matHeaderCellDef> # </th>
+                    <td mat-cell *matCellDef="let element"> {{ reviewSourceData.indexOf(element) + 1 }} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reviewer">
+                    <th mat-header-cell *matHeaderCellDef> Reviewer Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.reviewer}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="comment">
+                    <th mat-header-cell *matHeaderCellDef> Comment </th>
+                    <td mat-cell *matCellDef="let element"> {{element.comment}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="timeStamp">
+                    <th mat-header-cell *matHeaderCellDef> Time Stamp </th>
+                    <td mat-cell *matCellDef="let element"> {{element.timeStamp}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="rating">
+                    <th mat-header-cell *matHeaderCellDef> Rating </th>
+                    <td mat-cell *matCellDef="let element"> {{element.rating}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element"><mat-icon>visibility</mat-icon></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="reviewColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: reviewColumns;"></tr>
+            </table> -->
+
+            <app-common-table [displayCols]="reviewColumns" [dataSource]="reviewSourceData" [exportImport]="'export'" ></app-common-table>
+
+
+        </mat-card-content>
+    </mat-card>
+    <br>
+    <mat-card appearance="outlined">
+        <mat-card-header>{{"Employees_List" | translate}}</mat-card-header>
+        <mat-card-content>
+
+            <app-common-table [fromComp]="'feedback'" [displayCols]="employeeColumns" [dataSource]="employeeSourceData" [exportImport]="'export'" ></app-common-table>
+
+        </mat-card-content>
+    </mat-card>
+</div>

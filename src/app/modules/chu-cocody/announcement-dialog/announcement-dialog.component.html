@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>{{"Announcement_Form" | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="annForm">
+        <mat-form-field>
+            <mat-label>{{"Title" | translate}}</mat-label>
+            <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Message" | translate}}</mat-label>
+            <textarea matInput formControlName="message"></textarea>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Select_Department" | translate}}</mat-label>
+            <mat-select formControlName="department">
+                <mat-option value="one">IT</mat-option>
+                <mat-option value="two">Product</mat-option>
+                <mat-option value="three">Finance</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Cancel" | translate}}</button>
+    <button mat-button (click)="addAnnouncement()" [disabled]="annForm.invalid">{{"Add" | translate}}</button>
+</mat-dialog-actions>

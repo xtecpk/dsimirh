@@ -1,0 +1,17 @@
+<div id="functions">
+
+    <h1>{{"Functions" | translate}}</h1>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{"Function_Details" | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{"Add_Function" | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+           
+            <app-common-table [displayCols]="functionsColumns" [dataSourceIpt]="functionsDataSource" ></app-common-table>
+
+
+        </mat-card-content>
+    </mat-card>
+</div>

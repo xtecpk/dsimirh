@@ -1,0 +1,19 @@
+<div class="card flex justify-content-center">
+    <p-organizationChart [value]="data" [collapsible]="true">
+        <ng-template let-node pTemplate="default">
+            <div class="p-2 text-center">
+                <!-- <img 
+                    src="https://primefaces.org/cdn/primeng/images/flag/flag_placeholder.png" 
+                    [alt]="node.label" 
+                    [class]="'flag' + ' flag-' + node.data" 
+                    width="32" /> -->
+                <div>
+                    {{ node.data?.name }}
+                </div>
+                <div class="p-2">
+                    {{ node.label }}
+                </div>
+            </div>
+        </ng-template>
+    </p-organizationChart>
+</div>

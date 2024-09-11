@@ -1,0 +1,14 @@
+<div id="department">
+
+    <h1>{{"Department" | translate}}</h1>
+
+    <mat-card appearance="outlined">
+        <mat-card-header>
+            <p>{{"Details" | translate}}</p>
+            <button mat-flat-button (click)="openDialog()">{{"Add_Department" | translate}}</button>
+        </mat-card-header>
+        <mat-card-content>
+            <app-common-table [displayCols]="deptColumns" [dataSourceIpt]="deptDataSource" ></app-common-table>
+        </mat-card-content>
+    </mat-card>
+</div>

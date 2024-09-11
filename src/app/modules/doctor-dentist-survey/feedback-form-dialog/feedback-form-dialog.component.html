@@ -1,0 +1,170 @@
+<form [formGroup]="patientDetailsForm">
+
+    <mat-dialog-content class="mat-typography">
+        <h2 mat-dialog-title>{{"Question" | translate}} 1</h2>
+        <p mat-dialog-content>{{"Fact_Sheet" | translate}}</p>
+
+        <div class="form-field">
+            <mat-form-field>
+                <mat-label>{{"Name" | translate}}</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Address" | translate}}</mat-label>
+                <input matInput formControlName="address">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"City" | translate}}</mat-label>
+                <input matInput formControlName="city">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Country" | translate}}</mat-label>
+                <input matInput formControlName="country">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Email" | translate}}</mat-label>
+                <input matInput formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Phone_Number" | translate}}</mat-label>
+                <input matInput formControlName="phoneNumber">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Date_of_Birth" | translate}}</mat-label>
+                <input matInput [matDatepicker]="dob" formControlName="dateOfBirth">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="dob"></mat-datepicker-toggle>
+                <mat-datepicker #dob></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Gender" | translate}}</mat-label>
+                <select matNativeControl formControlName="gender">
+                    <option value="male">{{"Male" | translate}}</option>
+                    <option value="female">{{"Female" | translate}}</option>
+                </select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Occupation" | translate}}</mat-label>
+                <input matInput formControlName="occupation">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>{{"Age" | translate}}</mat-label>
+                <input matInput formControlName="age">
+            </mat-form-field>
+        </div>
+
+
+        <h2 mat-dialog-title>{{"Question" | translate}} 2</h2>
+        <p mat-dialog-content>{{"Fill_out_this_questionnaire_to" | translate}}</p>
+
+        <mat-form-field>
+            <mat-label>{{"Select_Person" | translate}}</mat-label>
+            <select matNativeControl formControlName="person">
+                <option value="yourself">{{"Yourself" | translate}}</option>
+                <option value="child">{{"Your_child" | translate}}</option>
+                <option value="spouse">{{"Your_spouse" | translate}}</option>
+                <option value="other">{{"Another_parent_or_friend" | translate}}</option>
+            </select>
+        </mat-form-field>
+
+        <h2 mat-dialog-title>{{"Question" | translate}} 3</h2>
+        <p mat-dialog-content>{{"Which_of_the_following_statements_best_describes_the_reason" | translate}}</p>
+
+        <mat-form-field>
+            <mat-label>{{"Select_Reason" | translate}}</mat-label>
+            <select matNativeControl formControlName="reason">
+                <option value="0">{{"Ask_for_someone’s_advice" | translate}}</option>
+                <option value="1">{{"Due_to_another_persistent_health_problem" | translate}}</option>
+                <option value="2">{{"For_a_routine_check" | translate}}</option>
+                <option value="3">{{"For_treatment_(including_prescriptions)" | translate}}</option>
+                <option value="4">{{"Due_to_a_one-time_health_problem" | translate}}</option>
+                <option value="5">{{"Feel_free_to_ask_if_you_need_any_further_assistance!" | translate}} 😊</option>
+            </select>
+        </mat-form-field>
+
+        <h2 mat-dialog-title>{{"Question" | translate}} 4</h2>
+        <p mat-dialog-content>{{"On_a_scale_of_0_to_3_how_important" | translate}}</p>
+
+        <mat-form-field>
+            <mat-label>{{"Select_Response" | translate}}</mat-label>
+            <select matNativeControl formControlName="response">
+                <option value="0">{{"Not_important_at_all" | translate}}</option>
+                <option value="1">{{"Somewhat_important" | translate}}</option>
+                <option value="2">{{"For_a_routine_check" | translate}}</option>
+                <option value="3">{{"Important" | translate}}</option>
+                <option value="4">{{"Very_important" | translate}}</option>
+            </select>
+        </mat-form-field>
+
+        <h2 mat-dialog-title>{{"Question"}} 5</h2>
+        <p mat-dialog-content>{{"essential_implement" | translate}}</p>
+
+        <table mat-table [dataSource]="reviewDataSource" class="mat-elevation-z8">
+
+            <!-- Position Column -->
+            <ng-container matColumnDef="Question">
+                <th mat-header-cell *matHeaderCellDef> {{"Question" | translate}} </th>
+                <td mat-cell *matCellDef="let element"> {{element.question}} </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="notAllSatisfied">
+                <th mat-header-cell *matHeaderCellDef>{{"Not_at_all_satisfied" | translate}}</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-group aria-label="Select an option" [name]="element.radioName">
+                        <mat-radio-button value="1"></mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="notSatisfied">
+                <th mat-header-cell *matHeaderCellDef>{{"Not_satisfied" | translate}}</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-group aria-label="Select an option" [name]="element.radioName">
+                        <mat-radio-button value="2"></mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="noOpinion">
+                <th mat-header-cell *matHeaderCellDef>{{"No_opinion" | translate}}</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-group aria-label="Select an option" [name]="element.radioName">
+                        <mat-radio-button value="3"></mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="satisfied">
+                <th mat-header-cell *matHeaderCellDef>{{"Satisfied" | translate}}</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-group aria-label="Select an option" [name]="element.radioName">
+                        <mat-radio-button value="4"></mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </ng-container>
+
+            <!-- Name Column -->
+            <ng-container matColumnDef="verySatisfied">
+                <th mat-header-cell *matHeaderCellDef>{{"Very_satisfied" | translate}}</th>
+                <td mat-cell *matCellDef="let element">
+                    <mat-radio-group aria-label="Select an option" [name]="element.radioName">
+                        <mat-radio-button value="5"></mat-radio-button>
+                    </mat-radio-group>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="reviewColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: reviewColumns;"></tr>
+        </table>
+
+    </mat-dialog-content>
+</form>
+
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="patientDetailsForm.invalid">{{"Submit" | translate}}</button>
+</mat-dialog-actions>

@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>{{'Add_Departure' | translate}}</h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="departureForm">
+        <mat-form-field>
+            <mat-label>{{'Employee_Name' | translate}}</mat-label>
+            <input matInput type="text" formControlName="employeeName">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Departure_Date' | translate}}</mat-label>
+            <input matInput [matDatepicker]="departureDate" formControlName="departureDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="departureDate"></mat-datepicker-toggle>
+            <mat-datepicker #departureDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{'Reason_For_Departure' | translate}}</mat-label>
+            <select matNativeControl required formControlName="departureReason">
+              <option value="1">{{'Abandonment_Of_Post' | translate}}</option>
+              <option value="2">{{'Death' | translate}}</option>
+              <option value="3">{{'Detachment' | translate}}</option>
+              <option value="4">{{'Availability' | translate}}</option>
+              <option value="5">{{'Mutation' | translate}}</option>
+              <option value="6">{{'Permutation' | translate}}</option>
+              <option value="7">{{'Retirement' | translate}}</option>
+              <option value="8">{{'Under_the_flags' | translate}}</option>
+            </select>
+          </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <mat-label>{{'Details' | translate}}</mat-label>
+            <textarea matInput type="text" formControlName="details"></textarea>
+          </mat-form-field>
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{'Close' | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="departureForm.invalid">{{'Submit' | translate}}</button>
+</mat-dialog-actions>

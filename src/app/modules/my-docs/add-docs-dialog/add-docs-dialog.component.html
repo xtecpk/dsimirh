@@ -1,0 +1,32 @@
+<h2 mat-dialog-title> {{"Add_Document_Details" | translate}} </h2>
+<mat-dialog-content class="mat-typography">
+
+    <form [formGroup]="docForm">
+        <mat-form-field>
+            <mat-label>{{"Category" | translate}}</mat-label>
+            <select matNativeControl formControlName="category">
+                <option value="sick">{{"Leaves" | translate}}</option>
+                <option value="certificates">{{"Training_certificates_&_Internships" | translate}}</option>
+                <option value="pay">{{"Pay_Slip" | translate}}</option>
+                <option value="cv">CV</option>
+                <option value="degree">{{"Degrees" | translate}}</option>
+                <option value="identification">{{"Identification" | translate}}</option>
+                <option value="official">{{"Official_Letters" | translate}}</option>
+            </select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>{{"Description" | translate}}</mat-label>
+            <input matInput formControlName="description">
+        </mat-form-field>
+        <!-- <mat-form-field> -->
+        <!-- <mat-label>Choose Document</mat-label> -->
+        <input type="file" formControlName="doc">
+        <!-- </mat-form-field> -->
+
+    </form>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">{{"Close" | translate}}</button>
+    <button mat-button (click)="sendData()" [disabled]="docForm.invalid">{{"Add" | translate}}</button>
+</mat-dialog-actions>
