@@ -133,11 +133,11 @@
             <!-- <p>This is the primary content of the panel.</p> -->
         </mat-expansion-panel>
     }
-    <!-- @if (selectedUser == 'admin') {
+     @if (selectedUser == 'admin') {
         <mat-expansion-panel>
             <mat-expansion-panel-header>
                 <mat-panel-title> <mat-icon fontSet="material-icons-outlined">widgets</mat-icon> {{"Feedback" | translate}} </mat-panel-title>
-                <mat-panel-description> This is a summary of the content </mat-panel-description>
+                <!-- <mat-panel-description> This is a summary of the content </mat-panel-description> -->
             </mat-expansion-panel-header>
             <ul>
                 <li [ngClass]=" (selectedTab === 'feedback' )? 'active-li':''" routerLink="/feedback" (click)="selectedTab = 'feedback'">{{"Feedback" | translate}}</li>
@@ -146,7 +146,7 @@
                 <li [ngClass]=" (selectedTab === 'doctorDentistSurvey' )? 'active-li':''" routerLink="/doctorDentistSurvey" (click)="selectedTab = 'doctorDentistSurvey'">{{"Doctor_and_Dentist_Surveys" | translate}}</li>
             </ul>
         </mat-expansion-panel>
-    } -->
+    } 
     
     @if (selectedUser == 'admin') {
         <mat-expansion-panel>
@@ -158,7 +158,7 @@
                 <li [ngClass]=" (selectedTab === 'staff' )? 'active-li':''" routerLink="/staff" (click)="selectedTab = 'staff'">{{"Staff" | translate}}</li>
                 <li [ngClass]=" (selectedTab === 'training' )? 'active-li':''" routerLink="/training" (click)="selectedTab = 'training'">{{"Training" | translate}}</li>
                 <li [ngClass]=" (selectedTab === 'teams' )? 'active-li':''" routerLink="/teams" (click)="selectedTab = 'teams'">{{"Teams" | translate}}</li>
-                <!-- <li [ngClass]=" (selectedTab === 'workSchedule' )? 'active-li':''" routerLink="/workSchedule" (click)="selectedTab = 'workSchedule'">{{"Work_Schedule" | translate}}</li> -->
+                <li [ngClass]=" (selectedTab === 'workSchedule' )? 'active-li':''" routerLink="/workSchedule" (click)="selectedTab = 'workSchedule'">{{"Work_Schedule" | translate}}</li>
                 <li [ngClass]=" (selectedTab === 'departure' )? 'active-li':''" routerLink="/departure" (click)="selectedTab = 'departure'">{{"Departure" | translate}}</li>
             </ul>
         </mat-expansion-panel>
